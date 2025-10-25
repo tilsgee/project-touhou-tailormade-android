@@ -1,10 +1,11 @@
-[gd_scene load_steps=18 format=3 uid="uid://bnq3t3c1imot1"]
+[gd_scene load_steps=20 format=3 uid="uid://bnq3t3c1imot1"]
 
 [ext_resource type="Script" uid="uid://d1jn4o30sfwvx" path="res://scripts/components/entity/player/player.gd" id="1_8mv8a"]
 [ext_resource type="Texture2D" uid="uid://de60in8oi1p1f" path="res://icon.svg" id="2_1su07"]
 [ext_resource type="Script" uid="uid://branfvijgagoc" path="res://scripts/components/entity/player/scripts/behaviour.gd" id="2_xbowy"]
 [ext_resource type="Script" uid="uid://bh2ros8k6g6v5" path="res://scripts/components/entity/player/controls/movement.gd" id="3_f7xu1"]
 [ext_resource type="Script" uid="uid://dtd5yjdni6m7a" path="res://scripts/components/entity/player/scripts/position_ticker.gd" id="3_l8lx2"]
+[ext_resource type="Script" uid="uid://ckc4qx27gw2to" path="res://scripts/components/entity/player/scripts/interact.gd" id="4_xbowy"]
 [ext_resource type="Script" uid="uid://byrtmeu63ri6b" path="res://scripts/components/entity/player/controls/shoot.gd" id="7_bcke1"]
 [ext_resource type="PackedScene" uid="uid://ctyei6ne0fqea" path="res://scripts/components/shoot/shoot_component.tscn" id="9_j1ofm"]
 [ext_resource type="PackedScene" uid="uid://cdt5hfmpe0553" path="res://scripts/libs/hitscan/hitscan.tscn" id="10_j1ofm"]
@@ -23,6 +24,9 @@ size = Vector2(32, 48)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_epdn1"]
 size = Vector2(16, 8)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_4yr2i"]
+size = Vector2(34, 68)
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_xbowy"]
 radius = 1.0
@@ -43,6 +47,9 @@ script = ExtResource("2_xbowy")
 [node name="PositionTicker" type="Node" parent="Scripts"]
 unique_name_in_owner = true
 script = ExtResource("3_l8lx2")
+
+[node name="Interact" type="Node" parent="Scripts"]
+script = ExtResource("4_xbowy")
 
 [node name="Icon" type="Sprite2D" parent="."]
 unique_name_in_owner = true
@@ -148,6 +155,7 @@ circular_gap = 64.0
 
 [node name="GroundClearance" type="Area2D" parent="Colliders"]
 unique_name_in_owner = true
+visible = false
 collision_layer = 0
 collision_mask = 3
 
@@ -157,6 +165,7 @@ shape = SubResource("RectangleShape2D_dwlmk")
 
 [node name="PlatformCheck" type="Area2D" parent="Colliders"]
 unique_name_in_owner = true
+visible = false
 collision_layer = 0
 collision_mask = 2
 monitorable = false
@@ -165,6 +174,13 @@ monitorable = false
 position = Vector2(0, 28)
 shape = SubResource("RectangleShape2D_epdn1")
 debug_color = Color(0.5056187, 0.25926226, 0.15046799, 0.41960785)
+
+[node name="InteractableDetector" type="Area2D" parent="Colliders"]
+unique_name_in_owner = true
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Colliders/InteractableDetector"]
+shape = SubResource("RectangleShape2D_4yr2i")
+debug_color = Color(0.44883853, 0.59112585, 0.24002662, 0.41960785)
 
 [node name="Components" type="Node2D" parent="."]
 

@@ -1,0 +1,63 @@
+[gd_scene load_steps=9 format=3 uid="uid://dr3m4h6chre4f"]
+
+[ext_resource type="Script" uid="uid://cx62cx5dpw3fm" path="res://scenes/game/game_tailormade.gd" id="1_g1wqq"]
+[ext_resource type="PackedScene" uid="uid://di2xyd1vrqx1q" path="res://scenes/arena/arena_tailormade.tscn" id="2_fmcej"]
+[ext_resource type="PackedScene" uid="uid://bdm6wlm530nsh" path="res://scripts/components/cursor/cursor.tscn" id="2_g1wqq"]
+[ext_resource type="PackedScene" uid="uid://dyrsxd3nm3uyv" path="res://scripts/components/ui/game_ui/game_ui.tscn" id="3_fmcej"]
+[ext_resource type="PackedScene" uid="uid://bxfn0qwncpjx3" path="res://scripts/singletons/dialoguer/dialogue.tscn" id="4_u3fuu"]
+[ext_resource type="Shader" uid="uid://c2uah3fag4ja8" path="res://shaders/chromatic/chromatic_aberration.gdshader" id="5_wuhna"]
+
+[sub_resource type="ViewportTexture" id="ViewportTexture_1ajxl"]
+viewport_path = NodePath("Viewport")
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_uwmyg"]
+shader = ExtResource("5_wuhna")
+shader_parameter/circular_aberration = true
+shader_parameter/feather = 1.0
+shader_parameter/strength = Vector2(1, 1)
+
+[node name="GameTailormade" type="Node"]
+script = ExtResource("1_g1wqq")
+
+[node name="Scripts" type="Node" parent="."]
+
+[node name="Viewport" type="SubViewport" parent="."]
+unique_name_in_owner = true
+disable_3d = true
+transparent_bg = true
+handle_input_locally = false
+snap_2d_vertices_to_pixel = true
+anisotropic_filtering_level = 0
+canvas_item_default_texture_filter = 0
+audio_listener_enable_2d = true
+size = Vector2i(648, 368)
+render_target_update_mode = 4
+
+[node name="ArenaTailormade" parent="Viewport" instance=ExtResource("2_fmcej")]
+
+[node name="GameView" type="Sprite2D" parent="."]
+unique_name_in_owner = true
+position = Vector2(640, 360)
+texture = SubResource("ViewportTexture_1ajxl")
+metadata/_edit_lock_ = true
+
+[node name="Foreground" type="Parallax2D" parent="."]
+unique_name_in_owner = true
+
+[node name="UI" type="CanvasLayer" parent="."]
+unique_name_in_owner = true
+layer = 10
+
+[node name="Cursor" parent="UI" instance=ExtResource("2_g1wqq")]
+
+[node name="GameUI" parent="UI" instance=ExtResource("3_fmcej")]
+
+[node name="Dialogue" parent="UI" instance=ExtResource("4_u3fuu")]
+
+[node name="Abr" type="ColorRect" parent="UI"]
+material = SubResource("ShaderMaterial_uwmyg")
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2

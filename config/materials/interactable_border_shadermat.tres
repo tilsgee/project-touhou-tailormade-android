@@ -1,0 +1,16 @@
+[gd_resource type="ShaderMaterial" load_steps=2 format=3 uid="uid://bkdpfknauvqrh"]
+
+[ext_resource type="Shader" uid="uid://bbwdbx3s8baj3" path="res://shaders/aio_2d_outline/all_in_one_2D_outline.gdshader" id="1_0e2h6"]
+
+[resource]
+shader = ExtResource("1_0e2h6")
+shader_parameter/active = false
+shader_parameter/thickness = 5.0000002375
+shader_parameter/ring_count = 16
+shader_parameter/ring_offset = 0.0
+shader_parameter/outline_color = Color(1, 1, 1, 1)
+shader_parameter/border_clipping_fix = true
+shader_parameter/aspect_ratio = 1.0
+shader_parameter/square_border = false
+shader_parameter/offset = Vector2(0, 0)
+shader_parameter/max_or_add = false
