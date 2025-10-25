@@ -1,0 +1,95 @@
+[gd_scene load_steps=5 format=3 uid="uid://dyarrute61j8t"]
+
+[ext_resource type="Script" uid="uid://drq1luy6vnmje" path="res://scripts/components/spellcard/spellcard.gd" id="1_idyl7"]
+[ext_resource type="Theme" uid="uid://cvocwk6x1wj7h" path="res://config/themes/global.tres" id="1_rosx4"]
+
+[sub_resource type="Gradient" id="Gradient_idyl7"]
+offsets = PackedFloat32Array(0)
+colors = PackedColorArray(0, 0, 0, 1)
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_rosx4"]
+gradient = SubResource("Gradient_idyl7")
+width = 412
+height = 720
+
+[node name="Spellcard" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme = ExtResource("1_rosx4")
+script = ExtResource("1_idyl7")
+
+[node name="Container" type="HBoxContainer" parent="."]
+unique_name_in_owner = true
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="LeftTexture" type="TextureRect" parent="Container"]
+unique_name_in_owner = true
+layout_mode = 2
+texture = SubResource("GradientTexture2D_rosx4")
+
+[node name="Spacer" type="Control" parent="Container"]
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="RightTexture" type="TextureRect" parent="Container"]
+unique_name_in_owner = true
+layout_mode = 2
+texture = SubResource("GradientTexture2D_rosx4")
+
+[node name="MarginContainer" type="MarginContainer" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/margin_left = 32
+theme_override_constants/margin_top = 92
+theme_override_constants/margin_right = 32
+theme_override_constants/margin_bottom = 172
+
+[node name="HBoxContainer" type="HBoxContainer" parent="MarginContainer"]
+layout_mode = 2
+
+[node name="VBoxContainer" type="VBoxContainer" parent="MarginContainer/HBoxContainer"]
+layout_mode = 2
+
+[node name="MTL" type="Control" parent="MarginContainer/HBoxContainer/VBoxContainer"]
+unique_name_in_owner = true
+layout_mode = 2
+size_flags_vertical = 3
+
+[node name="Spacer" type="Control" parent="MarginContainer/HBoxContainer/VBoxContainer"]
+layout_mode = 2
+
+[node name="MBL" type="Control" parent="MarginContainer/HBoxContainer/VBoxContainer"]
+unique_name_in_owner = true
+layout_mode = 2
+
+[node name="Spacer" type="Control" parent="MarginContainer/HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="VBoxContainer2" type="VBoxContainer" parent="MarginContainer/HBoxContainer"]
+layout_mode = 2
+
+[node name="MTR" type="Control" parent="MarginContainer/HBoxContainer/VBoxContainer2"]
+unique_name_in_owner = true
+layout_mode = 2
+size_flags_vertical = 3
+
+[node name="Spacer" type="Control" parent="MarginContainer/HBoxContainer/VBoxContainer2"]
+layout_mode = 2
+
+[node name="MBR" type="Control" parent="MarginContainer/HBoxContainer/VBoxContainer2"]
+unique_name_in_owner = true
+layout_mode = 2

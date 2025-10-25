@@ -1,0 +1,73 @@
+[gd_scene load_steps=7 format=3 uid="uid://6sk2b2n2863p"]
+
+[ext_resource type="Script" uid="uid://dkmu82pjok8j8" path="res://scripts/libs/health_bar/health_bar.gd" id="1_mrd8c"]
+
+[sub_resource type="CapsuleMesh" id="CapsuleMesh_mrd8c"]
+radius = 7.0
+height = 76.0
+radial_segments = 4
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_mrd8c"]
+content_margin_left = 2.0
+content_margin_top = 2.0
+content_margin_right = 2.0
+content_margin_bottom = 2.0
+bg_color = Color(0.16862746, 0, 0, 1)
+corner_detail = 6
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_aaj75"]
+content_margin_left = 2.0
+content_margin_top = 2.0
+content_margin_right = 2.0
+content_margin_bottom = 2.0
+bg_color = Color(1, 0.78431374, 0.12941177, 1)
+corner_detail = 6
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_mrd8c"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_n2jak"]
+content_margin_left = 2.0
+content_margin_top = 2.0
+content_margin_right = 2.0
+content_margin_bottom = 2.0
+bg_color = Color(1, 0, 0.28235295, 1)
+corner_detail = 6
+
+[node name="HealthBar" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_mrd8c")
+
+[node name="Capsule" type="MeshInstance2D" parent="."]
+clip_children = 1
+rotation = 1.5707964
+mesh = SubResource("CapsuleMesh_mrd8c")
+
+[node name="Container" type="Node2D" parent="Capsule"]
+rotation = -1.5707964
+
+[node name="ProgressBarOrange" type="ProgressBar" parent="Capsule/Container"]
+unique_name_in_owner = true
+offset_left = -38.0
+offset_top = -7.0
+offset_right = 38.0
+offset_bottom = 7.0
+theme_override_styles/background = SubResource("StyleBoxFlat_mrd8c")
+theme_override_styles/fill = SubResource("StyleBoxFlat_aaj75")
+value = 100.0
+show_percentage = false
+
+[node name="ProgressBarRed" type="ProgressBar" parent="Capsule/Container"]
+unique_name_in_owner = true
+offset_left = -38.0
+offset_top = -7.0
+offset_right = 38.0
+offset_bottom = 7.0
+theme_override_styles/background = SubResource("StyleBoxEmpty_mrd8c")
+theme_override_styles/fill = SubResource("StyleBoxFlat_n2jak")
+value = 80.0
+show_percentage = false

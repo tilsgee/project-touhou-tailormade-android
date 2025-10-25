@@ -1,0 +1,9 @@
+[gd_scene load_steps=2 format=3 uid="uid://dmx4xwtjk3k31"]
+
+[ext_resource type="Script" uid="uid://befk5hwma8dhj" path="res://scripts/components/touch_damage/touch_damage.gd" id="1_ny852"]
+
+[node name="TouchDamage" type="Area2D"]
+collision_layer = 0
+collision_mask = 128
+monitorable = false
+script = ExtResource("1_ny852")

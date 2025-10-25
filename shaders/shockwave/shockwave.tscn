@@ -1,0 +1,32 @@
+[gd_scene load_steps=4 format=3 uid="uid://cvfhh7t0njvth"]
+
+[ext_resource type="Script" uid="uid://bsjruw0p8mgjt" path="res://shaders/shockwave/shockwave.gd" id="1_r3fhr"]
+[ext_resource type="Shader" uid="uid://ctvrpuk5vodh2" path="res://shaders/shockwave/shockwave.gdshader" id="2_lmrux"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_ifell"]
+resource_local_to_scene = true
+shader = ExtResource("2_lmrux")
+shader_parameter/preview_atlas = true
+shader_parameter/rect_size = Vector2(1024, 1024)
+shader_parameter/position = Vector2(512, 512)
+shader_parameter/size = 0.24
+shader_parameter/feather = 0.1
+shader_parameter/gap = 0.049999998882400004
+shader_parameter/force = 0.24
+shader_parameter/chromatic_abberation = true
+shader_parameter/chromatic_offset = 0.5
+
+[node name="Shockwave" type="BackBufferCopy"]
+copy_mode = 2
+rect = Rect2(0, 0, 1280, 720)
+script = ExtResource("1_r3fhr")
+
+[node name="Shockwave" type="ColorRect" parent="."]
+light_mask = 0
+material = SubResource("ShaderMaterial_ifell")
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_bottom = 560.0
+grow_horizontal = 2
+grow_vertical = 2

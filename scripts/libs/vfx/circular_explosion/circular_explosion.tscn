@@ -1,0 +1,6 @@
+[gd_scene load_steps=2 format=3 uid="uid://bndtph6e8gcgu"]
+
+[ext_resource type="Script" uid="uid://dbh5qgwrclyqt" path="res://scripts/libs/vfx/circular_explosion/circular_explosion.gd" id="1_cskkm"]
+
+[node name="CircularExplosion" type="Node2D"]
+script = ExtResource("1_cskkm")

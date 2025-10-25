@@ -1,0 +1,18 @@
+[gd_resource type="Environment" load_steps=2 format=3 uid="uid://d3f0nvxldxlvn"]
+
+[ext_resource type="Texture2D" uid="uid://dxdnu6j8s1sq3" path="res://config/post_processing/pp_curve_texture.tres" id="1_kpxjm"]
+
+[resource]
+background_mode = 3
+background_canvas_max_layer = 2
+ambient_light_source = 1
+reflected_light_source = 1
+tonemap_mode = 1
+glow_enabled = true
+glow_intensity = 1.3
+glow_bloom = 0.08
+glow_hdr_threshold = 0.6
+glow_hdr_luminance_cap = 256.0
+adjustment_enabled = true
+adjustment_contrast = 1.02
+adjustment_color_correction = ExtResource("1_kpxjm")

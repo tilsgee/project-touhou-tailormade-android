@@ -1,0 +1,8 @@
+[gd_resource type="ShaderMaterial" load_steps=2 format=3 uid="uid://jiij57flia05"]
+
+[ext_resource type="Shader" uid="uid://c0daqsm1dl0n2" path="res://shaders/hit_flash/hit_flash.gdshader" id="1_63rfm"]
+
+[resource]
+shader = ExtResource("1_63rfm")
+shader_parameter/modulation_color = Color(1, 1, 1, 1)
+shader_parameter/max_modulation = 0.66

@@ -1,0 +1,26 @@
+[gd_scene load_steps=4 format=3 uid="uid://cn67m3chiffav"]
+
+[ext_resource type="Script" uid="uid://bd1rgjw45lc24" path="res://scripts/components/entity/player/ssm/pp_ssm.gd" id="1_7dyjw"]
+[ext_resource type="Texture2D" uid="uid://bs7etovhgfc2b" path="res://resources/images/sprites/projectiles/bullets/orb_2.png" id="2_qcu8o"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_nk577"]
+size = Vector2(12, 2)
+
+[node name="Projectile" type="CollisionShape2D"]
+texture_filter = 1
+texture_repeat = 1
+shape = SubResource("RectangleShape2D_nk577")
+script = ExtResource("1_7dyjw")
+collision_mask = Array[int]([9])
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+visible = false
+position = Vector2(-8, 0)
+scale = Vector2(1.125, 0.25)
+texture = ExtResource("2_qcu8o")
+
+[node name="ColorRect" type="ColorRect" parent="."]
+offset_left = -5.0
+offset_top = -1.0
+offset_right = 7.0
+offset_bottom = 1.0

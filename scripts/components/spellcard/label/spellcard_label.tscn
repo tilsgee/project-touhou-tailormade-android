@@ -1,0 +1,23 @@
+[gd_scene load_steps=3 format=3 uid="uid://ch2mjqla7ehqk"]
+
+[ext_resource type="Theme" uid="uid://cvocwk6x1wj7h" path="res://config/themes/global.tres" id="1_18ucg"]
+[ext_resource type="Script" uid="uid://cya1atmlyioyo" path="res://scripts/components/spellcard/label/spellcard_label.gd" id="2_tv566"]
+
+[node name="SpellcardLabel" type="Control"]
+layout_mode = 3
+anchors_preset = 0
+offset_right = 109.0
+offset_bottom = 23.0
+theme = ExtResource("1_18ucg")
+script = ExtResource("2_tv566")
+
+[node name="Label" type="Label" parent="."]
+layout_mode = 0
+offset_right = 40.0
+offset_bottom = 23.0
+text = "'Red Eyes \"Lunatic Blast\"'"
+
+[node name="Line2D" type="Line2D" parent="."]
+position = Vector2(0, 32)
+points = PackedVector2Array(0, 0, 480, 0)
+width = 2.0

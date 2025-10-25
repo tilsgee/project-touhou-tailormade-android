@@ -1,0 +1,36 @@
+[gd_scene load_steps=5 format=3 uid="uid://e4rsgij50m0i"]
+
+[ext_resource type="Script" uid="uid://bvgo1pqgdv8aq" path="res://scripts/libs/vfx/particles/blood_splat/blood_splat.gd" id="1_w1r61"]
+
+[sub_resource type="Curve" id="Curve_w1r61"]
+_data = [Vector2(0.48706898, 0.97752815), 0.0, 0.0, 0, 0, Vector2(1, 0), 0.0, 0.0, 0, 0]
+point_count = 2
+
+[sub_resource type="CurveTexture" id="CurveTexture_kyyvv"]
+curve = SubResource("Curve_w1r61")
+
+[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_v1lpq"]
+lifetime_randomness = 0.5
+particle_flag_disable_z = true
+emission_shape = 1
+emission_sphere_radius = 1.0
+spread = 180.0
+initial_velocity_min = 50.0
+initial_velocity_max = 200.0
+angular_velocity_min = -720.0
+angular_velocity_max = 719.99994
+gravity = Vector3(0, 200, 0)
+damping_max = 100.00001
+scale_max = 3.0
+color = Color(0.81724995, 0, 0.15655854, 1)
+alpha_curve = SubResource("CurveTexture_kyyvv")
+turbulence_enabled = true
+turbulence_noise_strength = 0.01
+turbulence_noise_scale = 10.0
+
+[node name="BloodSplat" type="GPUParticles2D"]
+amount = 6
+lifetime = 0.3
+explosiveness = 1.0
+process_material = SubResource("ParticleProcessMaterial_v1lpq")
+script = ExtResource("1_w1r61")

@@ -1,0 +1,33 @@
+[gd_scene load_steps=4 format=3 uid="uid://dfrckn0yvqqpf"]
+
+[ext_resource type="Script" uid="uid://ymwu7egvii72" path="res://scripts/components/entity/player/scripts/spellcard/projectile/sc_hitscan.gd" id="1_um6ng"]
+[ext_resource type="Curve" uid="uid://b3k52ipxhhpf5" path="res://config/curve/hitscan.tres" id="2_f0nst"]
+
+[sub_resource type="SegmentShape2D" id="SegmentShape2D_sy6p1"]
+b = Vector2(640, 0)
+
+[node name="Hitscan" type="CollisionShape2D"]
+shape = SubResource("SegmentShape2D_sy6p1")
+script = ExtResource("1_um6ng")
+decay_speed = 0.3000000000029104
+collision_mask = Array[int]([1, 9])
+can_pass_through = true
+
+[node name="Line2D" type="Line2D" parent="."]
+unique_name_in_owner = true
+points = PackedVector2Array(640, 0, 0, 0)
+width = 5.0
+width_curve = ExtResource("2_f0nst")
+default_color = Color(1, 0.344583, 0.45050216, 1)
+
+[node name="Line2DIn" type="Line2D" parent="."]
+unique_name_in_owner = true
+points = PackedVector2Array(640, 0, 0, 0)
+width = 3.0
+width_curve = ExtResource("2_f0nst")
+default_color = Color(1, 0.6766158, 0.6722339, 1)
+
+[node name="RayCast2D" type="RayCast2D" parent="."]
+unique_name_in_owner = true
+target_position = Vector2(640, 0)
+collide_with_areas = true

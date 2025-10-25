@@ -1,0 +1,36 @@
+[gd_scene load_steps=5 format=3 uid="uid://kmtwa87nkc6i"]
+
+[ext_resource type="Script" uid="uid://bobuay4viqnkp" path="res://scripts/libs/vfx/particles/spell_blast/spell_blast.gd" id="1_wbifd"]
+
+[sub_resource type="Curve" id="Curve_peg65"]
+_data = [Vector2(0, 1), 0.0, 0.0, 0, 0, Vector2(0.762931, 1), 0.0, 0.0, 0, 0, Vector2(1, 0), 0.0, 0.0, 0, 0]
+point_count = 3
+
+[sub_resource type="CurveTexture" id="CurveTexture_wbifd"]
+curve = SubResource("Curve_peg65")
+
+[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_peg65"]
+lifetime_randomness = 0.2
+particle_flag_disable_z = true
+spread = 180.0
+initial_velocity_min = 300.0
+initial_velocity_max = 500.0
+orbit_velocity_min = -0.29999992
+orbit_velocity_max = 0.3000001
+gravity = Vector3(0, 0, 0)
+scale_max = 5.0
+color = Color(1, 1, 0.85490197, 1)
+alpha_curve = SubResource("CurveTexture_wbifd")
+hue_variation_min = -2.2351742e-08
+hue_variation_max = 0.09999998
+
+[node name="BigBlast" type="GPUParticles2D"]
+emitting = false
+amount = 128
+lifetime = 2.0
+one_shot = true
+explosiveness = 0.95
+fixed_fps = 60
+interpolate = false
+process_material = SubResource("ParticleProcessMaterial_peg65")
+script = ExtResource("1_wbifd")

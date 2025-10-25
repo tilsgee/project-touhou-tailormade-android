@@ -1,0 +1,19 @@
+[gd_scene load_steps=4 format=3 uid="uid://daqmwagmc242i"]
+
+[ext_resource type="Script" uid="uid://c046yyd046hjq" path="res://scripts/components/entity/player/railgun/pp_railgun.gd" id="1_4tvw0"]
+[ext_resource type="Texture2D" uid="uid://difs0rk725xnr" path="res://resources/images/sprites/projectiles/bullets/orb_5.png" id="2_p6veg"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_nk577"]
+size = Vector2(48, 2)
+
+[node name="Projectile" type="CollisionShape2D"]
+texture_filter = 1
+texture_repeat = 1
+position = Vector2(-16, 0)
+shape = SubResource("RectangleShape2D_nk577")
+script = ExtResource("1_4tvw0")
+collision_mask = Array[int]([1, 9])
+
+[node name="Texture" type="Sprite2D" parent="."]
+scale = Vector2(0.79, 0.132)
+texture = ExtResource("2_p6veg")

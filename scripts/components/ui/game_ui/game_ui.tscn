@@ -1,0 +1,180 @@
+[gd_scene load_steps=5 format=3 uid="uid://dyrsxd3nm3uyv"]
+
+[ext_resource type="Theme" uid="uid://cvocwk6x1wj7h" path="res://config/themes/global.tres" id="1_sfx41"]
+[ext_resource type="Script" uid="uid://dh1sfnth40omm" path="res://scripts/components/ui/game_ui/game_ui.gd" id="2_a8s2a"]
+[ext_resource type="Texture2D" uid="uid://bxwvg6kk80vpu" path="res://resources/images/sprites/projectiles/bullets/orb_1.png" id="3_jmta6"]
+[ext_resource type="Texture2D" uid="uid://bts0v5l0n2vvn" path="res://resources/images/sprites/projectiles/bullets/orb_3.png" id="3_wly3i"]
+
+[node name="GameUI" type="MarginContainer"]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme = ExtResource("1_sfx41")
+theme_override_constants/margin_left = 32
+theme_override_constants/margin_top = 32
+theme_override_constants/margin_right = 32
+theme_override_constants/margin_bottom = 32
+script = ExtResource("2_a8s2a")
+
+[node name="HBoxContainer" type="HBoxContainer" parent="."]
+layout_mode = 2
+
+[node name="L" type="VBoxContainer" parent="HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+theme_override_constants/separation = 8
+alignment = 2
+
+[node name="FPS" type="Label" parent="HBoxContainer/L"]
+unique_name_in_owner = true
+layout_mode = 2
+
+[node name="Separator" type="Control" parent="HBoxContainer/L"]
+layout_mode = 2
+size_flags_vertical = 3
+
+[node name="Health" type="HBoxContainer" parent="HBoxContainer/L"]
+layout_mode = 2
+theme_override_constants/separation = 8
+
+[node name="Label" type="Label" parent="HBoxContainer/L/Health"]
+custom_minimum_size = Vector2(118, 0)
+layout_mode = 2
+theme_override_font_sizes/font_size = 16
+text = "Health:"
+horizontal_alignment = 2
+
+[node name="HealthContainer" type="HBoxContainer" parent="HBoxContainer/L/Health"]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(0, 32)
+layout_mode = 2
+theme_override_constants/separation = 0
+
+[node name="Health" type="TextureProgressBar" parent="HBoxContainer/L/Health/HealthContainer"]
+custom_minimum_size = Vector2(32, 32)
+layout_mode = 2
+value = 100.0
+fill_mode = 4
+texture_progress = ExtResource("3_jmta6")
+
+[node name="Spell" type="HBoxContainer" parent="HBoxContainer/L"]
+layout_mode = 2
+theme_override_constants/separation = 8
+
+[node name="Label" type="Label" parent="HBoxContainer/L/Spell"]
+custom_minimum_size = Vector2(118, 0)
+layout_mode = 2
+theme_override_font_sizes/font_size = 16
+text = "Spell Card:"
+horizontal_alignment = 2
+
+[node name="SpellContainer" type="HBoxContainer" parent="HBoxContainer/L/Spell"]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(0, 32)
+layout_mode = 2
+theme_override_constants/separation = 0
+
+[node name="Spell" type="TextureProgressBar" parent="HBoxContainer/L/Spell/SpellContainer"]
+custom_minimum_size = Vector2(32, 32)
+layout_mode = 2
+value = 100.0
+fill_mode = 4
+texture_progress = ExtResource("3_wly3i")
+
+[node name="R" type="VBoxContainer" parent="HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+alignment = 2
+
+[node name="ScoreBox" type="HBoxContainer" parent="HBoxContainer/R"]
+layout_mode = 2
+alignment = 2
+
+[node name="Label" type="Label" parent="HBoxContainer/R/ScoreBox"]
+layout_mode = 2
+text = "SCORE:"
+
+[node name="Score" type="Label" parent="HBoxContainer/R/ScoreBox"]
+unique_name_in_owner = true
+layout_mode = 2
+text = "0"
+
+[node name="Separator" type="Control" parent="HBoxContainer/R"]
+layout_mode = 2
+size_flags_vertical = 3
+
+[node name="Power" type="HBoxContainer" parent="HBoxContainer/R"]
+layout_mode = 2
+alignment = 2
+
+[node name="Control" type="Control" parent="HBoxContainer/R/Power"]
+custom_minimum_size = Vector2(256, 0)
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="PowerLabel" type="Label" parent="HBoxContainer/R/Power"]
+unique_name_in_owner = true
+layout_mode = 2
+theme_override_font_sizes/font_size = 16
+text = "2"
+
+[node name="PowerStats" type="ProgressBar" parent="HBoxContainer/R/Power"]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(0, 8)
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 4
+show_percentage = false
+
+[node name="Label2" type="Label" parent="HBoxContainer/R/Power"]
+custom_minimum_size = Vector2(54, 0)
+layout_mode = 2
+theme_override_font_sizes/font_size = 16
+text = "Power"
+
+[node name="Dash" type="HBoxContainer" parent="HBoxContainer/R"]
+layout_mode = 2
+alignment = 2
+
+[node name="Control" type="Control" parent="HBoxContainer/R/Dash"]
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="DashStats" type="ProgressBar" parent="HBoxContainer/R/Dash"]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(0, 8)
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 4
+show_percentage = false
+
+[node name="Label2" type="Label" parent="HBoxContainer/R/Dash"]
+custom_minimum_size = Vector2(54, 0)
+layout_mode = 2
+theme_override_font_sizes/font_size = 16
+text = "Dash"
+
+[node name="Hover" type="HBoxContainer" parent="HBoxContainer/R"]
+layout_mode = 2
+alignment = 2
+
+[node name="Control2" type="Control" parent="HBoxContainer/R/Hover"]
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="HoverStats" type="ProgressBar" parent="HBoxContainer/R/Hover"]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(0, 8)
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 4
+show_percentage = false
+
+[node name="Label" type="Label" parent="HBoxContainer/R/Hover"]
+custom_minimum_size = Vector2(54, 0)
+layout_mode = 2
+theme_override_font_sizes/font_size = 16
+text = "Hover"

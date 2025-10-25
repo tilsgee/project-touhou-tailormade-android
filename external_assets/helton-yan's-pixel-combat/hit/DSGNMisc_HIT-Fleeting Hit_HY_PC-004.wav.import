@@ -1,0 +1,24 @@
+[remap]
+
+importer="wav"
+type="AudioStreamWAV"
+uid="uid://d28sods76t6gh"
+path="res://.godot/imported/DSGNMisc_HIT-Fleeting Hit_HY_PC-004.wav-d680c718f36a849a374e966c19c701b2.sample"
+
+[deps]
+
+source_file="res://external_assets/helton-yan's-pixel-combat/hit/DSGNMisc_HIT-Fleeting Hit_HY_PC-004.wav"
+dest_files=["res://.godot/imported/DSGNMisc_HIT-Fleeting Hit_HY_PC-004.wav-d680c718f36a849a374e966c19c701b2.sample"]
+
+[params]
+
+force/8_bit=false
+force/mono=false
+force/max_rate=false
+force/max_rate_hz=44100
+edit/trim=false
+edit/normalize=false
+edit/loop_mode=0
+edit/loop_begin=0
+edit/loop_end=-1
+compress/mode=2

@@ -1,0 +1,57 @@
+[gd_scene load_steps=8 format=3 uid="uid://ctpnitbyiug4h"]
+
+[ext_resource type="PackedScene" uid="uid://bnq3t3c1imot1" path="res://scripts/components/entity/player/player.tscn" id="1_1qjuf"]
+[ext_resource type="PackedScene" uid="uid://cde6s3i4jov3g" path="res://scripts/components/camera/camera.tscn" id="1_8trdl"]
+[ext_resource type="Script" uid="uid://b1c0pkx4cqbrp" path="res://scenes/arena/arena.gd" id="1_aj7ud"]
+[ext_resource type="Script" uid="uid://wdm04fxg482c" path="res://scenes/arena/scripts/debug/enemy_spawner.gd" id="2_jx0ua"]
+[ext_resource type="Texture2D" uid="uid://de60in8oi1p1f" path="res://icon.svg" id="3_5tue2"]
+[ext_resource type="PackedScene" uid="uid://gfdqvqd8287m" path="res://scripts/components/entity/enemy/enemy.tscn" id="5_asdgj"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_aj7ud"]
+size = Vector2(2432, 64)
+
+[node name="Arena" type="Node2D"]
+script = ExtResource("1_aj7ud")
+
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
+layer = -1
+
+[node name="ColorRect" type="ColorRect" parent="CanvasLayer"]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0.13556954, 0.22299549, 0.28975618, 1)
+
+[node name="Scripts" type="Node" parent="."]
+
+[node name="Debug" type="Node" parent="Scripts"]
+
+[node name="EnemySpawner" type="Node" parent="Scripts/Debug"]
+script = ExtResource("2_jx0ua")
+
+[node name="Camera" parent="." instance=ExtResource("1_8trdl")]
+
+[node name="Player" parent="." instance=ExtResource("1_1qjuf")]
+position = Vector2(0, -72)
+
+[node name="StaticBody2D" type="StaticBody2D" parent="."]
+
+[node name="Icon" type="Sprite2D" parent="StaticBody2D"]
+position = Vector2(83.99995, 32)
+scale = Vector2(19.312502, 0.5)
+texture = ExtResource("3_5tue2")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D"]
+position = Vector2(64, 32)
+shape = SubResource("RectangleShape2D_aj7ud")
+
+[node name="PooledNodes" type="Node2D" parent="."]
+unique_name_in_owner = true
+
+[node name="OtherNodes" type="Node2D" parent="."]
+unique_name_in_owner = true
+
+[node name="Enemy" parent="." instance=ExtResource("5_asdgj")]
+position = Vector2(472, -64)

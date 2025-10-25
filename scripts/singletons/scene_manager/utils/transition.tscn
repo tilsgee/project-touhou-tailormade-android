@@ -1,0 +1,44 @@
+[gd_scene load_steps=5 format=3 uid="uid://dqr58vy7jg1yl"]
+
+[ext_resource type="Script" uid="uid://c0gicneyvrdr7" path="res://scripts/singletons/scene_manager/utils/transition.gd" id="1_o1520"]
+[ext_resource type="Shader" uid="uid://dahgvra2ippc2" path="res://shaders/diamond_transition/diamond_transition.gdshader" id="1_volbj"]
+[ext_resource type="Theme" path="res://config/themes/global.tres" id="3_46ft1"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_o1520"]
+shader = ExtResource("1_volbj")
+shader_parameter/Diamonds = 10.0
+shader_parameter/pixel_size = 0.028
+shader_parameter/height = 1.09
+shader_parameter/disable_pixel = false
+shader_parameter/invert = false
+shader_parameter/horizontal = false
+shader_parameter/circular = false
+
+[node name="Transition" type="CanvasLayer"]
+layer = 10
+script = ExtResource("1_o1520")
+
+[node name="Transition" type="ColorRect" parent="."]
+unique_name_in_owner = true
+material = SubResource("ShaderMaterial_o1520")
+clip_contents = true
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+color = Color(0, 0, 0, 1)
+metadata/_edit_lock_ = true
+
+[node name="Label" type="Label" parent="."]
+unique_name_in_owner = true
+anchors_preset = -1
+offset_left = 1049.0
+offset_top = 630.0
+offset_right = 1209.0
+offset_bottom = 657.0
+theme = ExtResource("3_46ft1")
+text = "LOADING..."
+metadata/_edit_lock_ = true

@@ -1,0 +1,42 @@
+[gd_scene load_steps=6 format=3 uid="uid://b1xuprti224l2"]
+
+[ext_resource type="Texture2D" uid="uid://beqpbimtk66t8" path="res://config/gradients/point_light_grad.tres" id="1_aif3f"]
+[ext_resource type="Script" uid="uid://bobuay4viqnkp" path="res://scripts/libs/vfx/particles/spell_blast/spell_blast.gd" id="2_d1f3h"]
+
+[sub_resource type="Curve" id="Curve_aif3f"]
+_data = [Vector2(0, 0), 0.0, 0.0, 0, 0, Vector2(0.09051724, 1), 0.0, 0.0, 0, 0, Vector2(0.125, 1), 0.0, 0.0, 0, 0, Vector2(0.18534482, 0), 0.0, 0.0, 0, 0]
+point_count = 4
+
+[sub_resource type="CurveTexture" id="CurveTexture_d6hh8"]
+curve = SubResource("Curve_aif3f")
+
+[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_d1f3h"]
+lifetime_randomness = 0.2
+particle_flag_disable_z = true
+emission_shape = 2
+emission_sphere_radius = 256.0
+spread = 180.0
+initial_velocity_max = 100.0
+angular_velocity_min = -420.0
+angular_velocity_max = 419.99997
+orbit_velocity_min = 9.49949e-08
+orbit_velocity_max = 0.3000001
+radial_velocity_min = -500.0
+radial_velocity_max = -500.0
+gravity = Vector3(0, 0, 0)
+scale_min = 0.049999997
+scale_max = 0.29999998
+alpha_curve = SubResource("CurveTexture_d6hh8")
+hue_variation_min = -0.020000022
+hue_variation_max = 0.029999977
+
+[node name="InwardSpellBlast" type="GPUParticles2D"]
+amount = 64
+texture = ExtResource("1_aif3f")
+lifetime = 3.0
+one_shot = true
+explosiveness = 0.3
+fixed_fps = 60
+interpolate = false
+process_material = SubResource("ParticleProcessMaterial_d1f3h")
+script = ExtResource("2_d1f3h")
