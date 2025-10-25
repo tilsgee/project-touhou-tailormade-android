@@ -17,8 +17,6 @@ var hitbox_component: HitboxComponent:
 	get: return %HitboxComponent
 var health_component: HealthComponent:
 	get: return %HealthComponent
-var gravity: Gravity:
-	get: return %Gravity
 var knockback_factor := 100.0
 
 var _score: int:
@@ -68,7 +66,8 @@ func spawn() -> void:
 	propagate_call(&"set_physics_process", [true])
 
 ## Common knockback behaviour
-func knockback(collision_point: Vector2) -> void:
-	velocity.x = sign((global_position - collision_point).normalized().x) * knockback_factor
-	if is_on_floor() or self is Player:
-		velocity.y = - knockback_factor
+func knockback(_collision_point: Vector2) -> void:
+	return
+	#velocity.x = sign((global_position - collision_point).normalized().x) * knockback_factor
+	#if is_on_floor() or self is Player:
+	#	velocity.y = - knockback_factor

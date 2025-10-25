@@ -41,9 +41,8 @@ func die() -> void:
 	power -= 15
 	
 	_player.hide()
-	_player.gravity.toggle(false)
 	_player.velocity = Vector2.ZERO
-	_player.get_node("%Fly").toggle_active(false)
+
 	CameraShaker.new(20.0, 1.0)
 	SFX.new(_player, SFX.playlist.player.dead, {&"volume_db": -6.0}).no_pitch_change().process_always()
 	
@@ -79,7 +78,6 @@ func _respawn() -> void:
 	_player.health_component.health = player_max_sub_health
 	player_sub_health = player_max_sub_health
 	player_health -= 1
-	_player.gravity.toggle(true)
 	_player.show()
 	await _blink()
 	_player.hitbox_component.active = true

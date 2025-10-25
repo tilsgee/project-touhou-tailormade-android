@@ -1,16 +1,11 @@
-[gd_scene load_steps=23 format=3 uid="uid://bnq3t3c1imot1"]
+[gd_scene load_steps=18 format=3 uid="uid://bnq3t3c1imot1"]
 
 [ext_resource type="Script" uid="uid://d1jn4o30sfwvx" path="res://scripts/components/entity/player/player.gd" id="1_8mv8a"]
 [ext_resource type="Texture2D" uid="uid://de60in8oi1p1f" path="res://icon.svg" id="2_1su07"]
 [ext_resource type="Script" uid="uid://branfvijgagoc" path="res://scripts/components/entity/player/scripts/behaviour.gd" id="2_xbowy"]
 [ext_resource type="Script" uid="uid://bh2ros8k6g6v5" path="res://scripts/components/entity/player/controls/movement.gd" id="3_f7xu1"]
 [ext_resource type="Script" uid="uid://dtd5yjdni6m7a" path="res://scripts/components/entity/player/scripts/position_ticker.gd" id="3_l8lx2"]
-[ext_resource type="Script" uid="uid://cha5i0km4alsy" path="res://scripts/components/entity/player/controls/jump.gd" id="4_dwlmk"]
-[ext_resource type="Script" uid="uid://cinlax57gf51j" path="res://scripts/components/entity/player/controls/platform.gd" id="5_n4ykx"]
-[ext_resource type="PackedScene" uid="uid://b4yoypqxptkk1" path="res://scripts/components/gravity/gravity.tscn" id="5_yjq4j"]
-[ext_resource type="Script" uid="uid://b2itcnlqscjur" path="res://scripts/components/entity/player/controls/fly.gd" id="6_epdn1"]
 [ext_resource type="Script" uid="uid://byrtmeu63ri6b" path="res://scripts/components/entity/player/controls/shoot.gd" id="7_bcke1"]
-[ext_resource type="Script" uid="uid://d4dowypyact8x" path="res://scripts/components/entity/player/controls/dash.gd" id="9_4yr2i"]
 [ext_resource type="PackedScene" uid="uid://ctyei6ne0fqea" path="res://scripts/components/shoot/shoot_component.tscn" id="9_j1ofm"]
 [ext_resource type="PackedScene" uid="uid://cdt5hfmpe0553" path="res://scripts/libs/hitscan/hitscan.tscn" id="10_j1ofm"]
 [ext_resource type="PackedScene" uid="uid://cgsn8y8emb4lv" path="res://scripts/components/health/health_component.tscn" id="11_jtuxu"]
@@ -63,17 +58,6 @@ shape = SubResource("CapsuleShape2D_yjq4j")
 [node name="Movement" type="Node2D" parent="Controls"]
 unique_name_in_owner = true
 script = ExtResource("3_f7xu1")
-
-[node name="Jump" type="Node2D" parent="Controls"]
-unique_name_in_owner = true
-script = ExtResource("4_dwlmk")
-
-[node name="Platform" type="Node2D" parent="Controls"]
-script = ExtResource("5_n4ykx")
-
-[node name="Fly" type="Node2D" parent="Controls"]
-unique_name_in_owner = true
-script = ExtResource("6_epdn1")
 
 [node name="Shoot" type="Node2D" parent="Controls"]
 script = ExtResource("7_bcke1")
@@ -144,12 +128,6 @@ rounds_per_minute = 200
 angle_randomness = 2.0
 projectile_spread = 0.01
 projectile_spread_degrees = 10.0
-
-[node name="Gravity" parent="Controls" instance=ExtResource("5_yjq4j")]
-unique_name_in_owner = true
-
-[node name="Dash" type="Node2D" parent="Controls"]
-script = ExtResource("9_4yr2i")
 
 [node name="Spellcard" type="Node2D" parent="Controls"]
 script = ExtResource("12_3qg30")
