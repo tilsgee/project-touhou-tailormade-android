@@ -14,7 +14,8 @@ func _ready() -> void:
 func _input(event: InputEvent) -> void:
 	if event.is_action_pressed(&"Interact") and _currently_selected_interactable != null:
 		_currently_selected_interactable.interact()
-	elif event.is_action_pressed(&"ui_cancel") and ClothAisleUI.instance.visible:
+	elif (event.is_action_pressed(&"ui_cancel") or event.is_action_pressed(&"AltCancel")) \
+	and ClothAisleUI.instance.visible:
 		ClothAisleUI.cancel()
 
 func _on_near_interactable(_body : Node2D):

@@ -1,5 +1,7 @@
 class_name GameUI extends MarginContainer
 
+const ONE_CLOTHING_TEX_RECT = preload("uid://bkb23u5dnn365")
+
 static var instance: GameUI
 
 @onready var _hover_stats := %HoverStats
@@ -14,6 +16,9 @@ static var instance: GameUI
 
 @onready var _spell_cont := %SpellContainer
 @onready var _spell_point: TextureProgressBar = _spell_cont.get_child(0)
+
+@onready var _held_clothes_cont: HBoxContainer = %HeldClothesContainer
+
 
 var _player_max_sub_health: int:
 	get: return Stats.get_stats(&"player_health", &"max_sub_value")
@@ -152,3 +157,13 @@ func _update_power(what: StringName, value: int) -> void:
 		_power_label.text = str(whole_progress) if whole_progress != 3 else "MAX"
 	else:
 		_power_stats.value = 100.0
+
+
+func update_clothes(_clothes_array : Array[ClothingData]):
+	for n in _held_clothes_cont.get_children():
+		n.queue_free()
+		
+	for _c_data in _clothes_array:
+		var new_clothing_icon : TextureRect = ONE_CLOTHING_TEX_RECT.instantiate()
+		new_clothing_icon.texture = _c_data.cloth_texture
+		_held_clothes_cont.add_child(new_clothing_icon)

@@ -120,17 +120,10 @@ alignment = 1
 [node name="ClothingOnDisplay" parent="UI/ClothAisleUi/VBoxContainer/ClothesHbox" instance=ExtResource("6_fmcej")]
 layout_mode = 2
 
-[node name="ClothingOnDisplay2" parent="UI/ClothAisleUi/VBoxContainer/ClothesHbox" instance=ExtResource("6_fmcej")]
+[node name="InventoryFullNotice" type="Label" parent="UI/ClothAisleUi/VBoxContainer"]
+visible = false
 layout_mode = 2
-
-[node name="ClothingOnDisplay3" parent="UI/ClothAisleUi/VBoxContainer/ClothesHbox" instance=ExtResource("6_fmcej")]
-layout_mode = 2
-
-[node name="ClothingOnDisplay4" parent="UI/ClothAisleUi/VBoxContainer/ClothesHbox" instance=ExtResource("6_fmcej")]
-layout_mode = 2
-
-[node name="ClothingOnDisplay5" parent="UI/ClothAisleUi/VBoxContainer/ClothesHbox" instance=ExtResource("6_fmcej")]
-layout_mode = 2
+text = "Inventory full!"
 
 [node name="Cursor" parent="UI" instance=ExtResource("2_g1wqq")]
 

@@ -1,6 +1,7 @@
 class_name ClickableSpriteButton extends Button
 
 signal visually_pressed
+signal new_texture_updated
 
 const SCALE_UP_FACTOR := 1.06
 const SCALE_DOWN_FACTOR := 0.94
@@ -10,23 +11,33 @@ const SCALE_DOWN_FACTOR := 0.94
 
 var _scale_tweener : Tween
 var _is_during_pressing := false
+var _is_pressable := true
 
 
 func _ready() -> void:
 	update_sprite_and_size()
 	
-	mouse_entered.connect(func(): _simple_scale_tween(SCALE_UP_FACTOR))
-	mouse_exited.connect(func(): 
-		_simple_scale_tween(1.0)
-		_is_during_pressing = false
-		)
+	mouse_entered.connect(_on_mouse_entered)
+	mouse_exited.connect(_on_mouse_exited)
 		
 	pressed.connect(_on_pressing)
 
 
+func _on_mouse_entered():
+	if not _is_during_pressing: _simple_scale_tween(SCALE_UP_FACTOR)
+	
+	
+func _on_mouse_exited():
+	if not _is_during_pressing: _simple_scale_tween(1.0)
+	
+	
 func update_sprite_and_size(_new_texture := Texture.new()):
+	var _is_texture_updated := false
+	
 	if _new_texture != null:
 		_sprite_image = _new_texture
+		_is_texture_updated = true
+		
 	
 	if _sprite_node:
 		if _sprite_image != null:
@@ -36,10 +47,13 @@ func update_sprite_and_size(_new_texture := Texture.new()):
 		if _sprite_tex != null:
 			self.custom_minimum_size = _sprite_tex.get_size()
 	
+	if _is_texture_updated: new_texture_updated.emit()
+	
 	
 func _on_pressing():
-	if _is_during_pressing:
+	if _is_during_pressing or !_is_pressable:
 		return
+		
 	_is_during_pressing = true
 	#print("pressed")
 	

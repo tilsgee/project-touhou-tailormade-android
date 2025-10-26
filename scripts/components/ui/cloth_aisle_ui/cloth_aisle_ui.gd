@@ -20,6 +20,8 @@ static func show_ui(_clothing_list : Array[ClothingData]):
 		_clothes_hbox.add_child(new_display)
 		new_display.update_sprite_and_size(_clothing.cloth_texture)
 		new_display.clothing_data = _clothing
+		if new_display.clothing_data.is_picked_by_player:
+			new_display.dim_this_display()
 		new_display.selected_clothing.connect(selected_clothing_and_close_ui)
 		
 	instance.show()
@@ -27,8 +29,14 @@ static func show_ui(_clothing_list : Array[ClothingData]):
 	Camera.set_mode(Camera.MODE.STATIC)
 
 
-static func selected_clothing_and_close_ui(data : ClothingData):
-	print("selected clothing: %s" % data.cloth_identifier)
+static func selected_clothing_and_close_ui(_c_data : ClothingData):
+	if _c_data.is_picked_by_player:
+		_c_data.is_picked_by_player = false
+		ClothingInventory.remove_clothing_from_inventory(_c_data)
+	else:
+		_c_data.is_picked_by_player = true
+		ClothingInventory.add_clothing_to_inventory(_c_data)
+		#print("selected clothing: %s" % _c_data.cloth_identifier)
 	hide_ui_and_restore_state()
 	
 	
