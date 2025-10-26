@@ -76,6 +76,7 @@ size = Vector2(1089, 64)
 size = Vector2(64, 682.00024)
 
 [node name="ArenaTailormade" type="Node2D"]
+visible = false
 script = ExtResource("1_24iwg")
 
 [node name="CanvasLayer" type="CanvasLayer" parent="."]
@@ -279,8 +280,15 @@ position = Vector2(992, 270.00003)
 scale = Vector2(0.99999964, 0.99999964)
 shape = SubResource("RectangleShape2D_5d4jp")
 
+[node name="Enemies" type="Node2D" parent="."]
+unique_name_in_owner = true
+
 [node name="PooledNodes" type="Node2D" parent="."]
 unique_name_in_owner = true
 
 [node name="OtherNodes" type="Node2D" parent="."]
 unique_name_in_owner = true
+
+[node name="YoukaiSpawnPos" type="Marker2D" parent="."]
+unique_name_in_owner = true
+position = Vector2(992, 272)
