@@ -1,0 +1,64 @@
+[gd_scene load_steps=9 format=3 uid="uid://l30h1axtwh1l"]
+
+[ext_resource type="Script" uid="uid://dfj7gkgjh7i6p" path="res://scenes/prologue/prologue.gd" id="1_gfsru"]
+[ext_resource type="Texture2D" uid="uid://ct41yoq3ltdce" path="res://resources/images/sprites/prologue1.png" id="1_loiah"]
+[ext_resource type="Texture2D" uid="uid://bv4ik0vqw25ci" path="res://resources/images/sprites/prologue2.png" id="2_gfsru"]
+[ext_resource type="Texture2D" uid="uid://d2hqvh5oxvbxp" path="res://resources/images/sprites/prologue3.png" id="3_k4kb1"]
+[ext_resource type="Texture2D" uid="uid://8d1u8e8sqdfd" path="res://resources/images/sprites/prologue4.png" id="4_0d6ok"]
+[ext_resource type="Texture2D" uid="uid://dmmhvssj3pj0t" path="res://resources/images/sprites/prologue5.png" id="5_bxlvl"]
+[ext_resource type="Theme" uid="uid://cvocwk6x1wj7h" path="res://config/themes/global.tres" id="7_k4kb1"]
+
+[sub_resource type="ViewportTexture" id="ViewportTexture_e24q1"]
+viewport_path = NodePath("SubViewport")
+
+[node name="Prologue" type="Node2D"]
+script = ExtResource("1_gfsru")
+
+[node name="ColorRect" type="ColorRect" parent="."]
+offset_right = 1280.0
+offset_bottom = 720.0
+color = Color(0, 0, 0, 1)
+
+[node name="SubViewport" type="SubViewport" parent="."]
+unique_name_in_owner = true
+transparent_bg = true
+size = Vector2i(640, 360)
+
+[node name="Prologue1" type="Sprite2D" parent="SubViewport"]
+position = Vector2(320, 180)
+texture = ExtResource("1_loiah")
+
+[node name="Prologue2" type="Sprite2D" parent="SubViewport"]
+visible = false
+position = Vector2(320, 180)
+texture = ExtResource("2_gfsru")
+
+[node name="Prologue3" type="Sprite2D" parent="SubViewport"]
+visible = false
+position = Vector2(320, 180)
+texture = ExtResource("3_k4kb1")
+
+[node name="Prologue4" type="Sprite2D" parent="SubViewport"]
+visible = false
+position = Vector2(320, 180)
+texture = ExtResource("4_0d6ok")
+
+[node name="Prologue5" type="Sprite2D" parent="SubViewport"]
+visible = false
+position = Vector2(320, 180)
+scale = Vector2(-1, 1)
+texture = ExtResource("5_bxlvl")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+scale = Vector2(2, 2)
+texture = SubResource("ViewportTexture_e24q1")
+offset = Vector2(320, 180)
+
+[node name="Skip" type="Label" parent="."]
+modulate = Color(1, 1, 1, 0.47058824)
+offset_left = 40.0
+offset_top = 40.0
+offset_right = 209.0
+offset_bottom = 63.0
+theme = ExtResource("7_k4kb1")
+text = "Press \"Escape\" to skip"

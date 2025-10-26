@@ -33,6 +33,8 @@ ObjectPoolService="*res://scripts/singletons/pool/object_pool_service.gd"
 Animate="*res://scripts/singletons/animate/animate.gd"
 Audio="*res://scripts/singletons/audio/audio.gd"
 ClothingInventory="*res://scripts/singletons/clothing_inventory/clothing_inventory.gd"
+DialogueManager="*res://addons/dialogue_manager/dialogue_manager.gd"
+Characters="*res://scripts/singletons/characters/characters.gd"
 
 [display]
 
@@ -43,7 +45,7 @@ window/vsync/vsync_mode=0
 
 [editor_plugins]
 
-enabled=PackedStringArray("res://addons/alicenzia/plugin.cfg")
+enabled=PackedStringArray("res://addons/dialogue_manager/plugin.cfg")
 
 [input]
 
@@ -119,7 +121,7 @@ AltCancel={
 
 [internationalization]
 
-locale/translations_pot_files=PackedStringArray("res://config/dialogues/d.dialogue")
+locale/translations_pot_files=PackedStringArray("res://config/dialogues/d.dialogue", "res://dialogues/main/main.dialogue", "res://dialogues/prologue1.dialogue", "res://dialogues/prologue2.dialogue", "res://dialogues/prologue3.dialogue", "res://dialogues/prologue4.dialogue", "res://dialogues/prologue5.dialogue")
 
 [layer_names]
 
@@ -144,4 +146,6 @@ common/physics_ticks_per_second=90
 [rendering]
 
 textures/canvas_textures/default_texture_filter=0
+renderer/rendering_method="gl_compatibility"
+renderer/rendering_method.mobile="gl_compatibility"
 environment/defaults/default_clear_color=Color(0.31431597, 0.31431615, 0.3143161, 0)

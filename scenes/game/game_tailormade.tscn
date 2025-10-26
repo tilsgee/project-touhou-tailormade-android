@@ -1,10 +1,9 @@
-[gd_scene load_steps=13 format=3 uid="uid://dr3m4h6chre4f"]
+[gd_scene load_steps=12 format=3 uid="uid://dr3m4h6chre4f"]
 
 [ext_resource type="Script" uid="uid://cx62cx5dpw3fm" path="res://scenes/game/game_tailormade.gd" id="1_g1wqq"]
 [ext_resource type="PackedScene" uid="uid://cgfbvb4uighod" path="res://scenes/arena/arena_tailormade.tscn" id="2_fmcej"]
 [ext_resource type="PackedScene" uid="uid://bdm6wlm530nsh" path="res://scripts/components/cursor/cursor.tscn" id="2_g1wqq"]
 [ext_resource type="PackedScene" uid="uid://dyrsxd3nm3uyv" path="res://scripts/components/ui/game_ui/game_ui.tscn" id="3_fmcej"]
-[ext_resource type="PackedScene" uid="uid://bxfn0qwncpjx3" path="res://scripts/singletons/dialoguer/dialogue.tscn" id="4_u3fuu"]
 [ext_resource type="Shader" uid="uid://c2uah3fag4ja8" path="res://shaders/chromatic/chromatic_aberration.gdshader" id="5_wuhna"]
 [ext_resource type="PackedScene" uid="uid://cjk1v0j44yjpo" path="res://scripts/components/ui/cloth_aisle_ui/clothing_on_display.tscn" id="6_fmcej"]
 [ext_resource type="Script" uid="uid://bff6h8qr42n6i" path="res://scripts/components/ui/cloth_aisle_ui/cloth_aisle_ui.gd" id="6_u3fuu"]
@@ -72,8 +71,6 @@ unique_name_in_owner = true
 layer = 10
 
 [node name="GameUI" parent="UI" instance=ExtResource("3_fmcej")]
-
-[node name="Dialogue" parent="UI" instance=ExtResource("4_u3fuu")]
 
 [node name="ClothAisleUi" type="Panel" parent="UI"]
 anchors_preset = 15

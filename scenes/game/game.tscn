@@ -1,10 +1,9 @@
-[gd_scene load_steps=11 format=3 uid="uid://y4om1upelsvr"]
+[gd_scene load_steps=10 format=3 uid="uid://y4om1upelsvr"]
 
 [ext_resource type="Script" uid="uid://b0c2xpk81yby5" path="res://scenes/game/game.gd" id="1_0sr1o"]
 [ext_resource type="PackedScene" uid="uid://ctpnitbyiug4h" path="res://scenes/arena/arena.tscn" id="3_lfrn8"]
 [ext_resource type="Shader" uid="uid://c2uah3fag4ja8" path="res://shaders/chromatic/chromatic_aberration.gdshader" id="4_bdhmt"]
 [ext_resource type="PackedScene" uid="uid://bdm6wlm530nsh" path="res://scripts/components/cursor/cursor.tscn" id="5_5i0tg"]
-[ext_resource type="PackedScene" uid="uid://bxfn0qwncpjx3" path="res://scripts/singletons/dialoguer/dialogue.tscn" id="6_87uf6"]
 [ext_resource type="PackedScene" uid="uid://dyrsxd3nm3uyv" path="res://scripts/components/ui/game_ui/game_ui.tscn" id="6_bdhmt"]
 [ext_resource type="Shader" uid="uid://dsy15rglggpa0" path="res://shaders/vignette/vignette.gdshader" id="12_otnwt"]
 
@@ -98,8 +97,6 @@ layer = 10
 [node name="Cursor" parent="UI" instance=ExtResource("5_5i0tg")]
 
 [node name="GameUI" parent="UI" instance=ExtResource("6_bdhmt")]
-
-[node name="Dialogue" parent="UI" instance=ExtResource("6_87uf6")]
 
 [node name="Abr" type="ColorRect" parent="UI"]
 material = SubResource("ShaderMaterial_87uf6")

@@ -1,0 +1,16 @@
+[remap]
+
+importer="dialogue_manager"
+importer_version=15
+type="Resource"
+uid="uid://dqfolpdlyse8i"
+path="res://.godot/imported/prologue1.dialogue-e93677e6407637f098a5547c249b5347.tres"
+
+[deps]
+
+source_file="res://dialogues/prologue1.dialogue"
+dest_files=["res://.godot/imported/prologue1.dialogue-e93677e6407637f098a5547c249b5347.tres"]
+
+[params]
+
+defaults=true
