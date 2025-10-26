@@ -12,11 +12,11 @@ extends Node
 var sfx := {
 	# UI sounds
 	"ui_select": preload("uid://replace_with_uid_ui_select"),
-	"ui_accept": preload("uid://replace_with_uid_ui_accept"),
+	"ui_accept": preload("uid://dusm1p26bntke"),
 	"ui_cancel": preload("uid://replace_with_uid_ui_cancel"),
 
 	# Gameplay sounds
-	"item_picked": preload("uid://replace_with_uid_item_picked"),
+	"item_picked": preload("uid://bun7blg3wydfv"),
 	"money_cash": preload("uid://replace_with_uid_money_cash"),
 	"customer_leave": preload("uid://replace_with_uid_customer_leave"), # “buwok” sfx
 
