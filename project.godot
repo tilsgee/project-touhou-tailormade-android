@@ -121,7 +121,7 @@ AltCancel={
 
 [internationalization]
 
-locale/translations_pot_files=PackedStringArray("res://config/dialogues/d.dialogue", "res://dialogues/main/main.dialogue", "res://dialogues/prologue1.dialogue", "res://dialogues/prologue2.dialogue", "res://dialogues/prologue3.dialogue", "res://dialogues/prologue4.dialogue", "res://dialogues/prologue5.dialogue")
+locale/translations_pot_files=PackedStringArray("res://config/dialogues/d.dialogue", "res://dialogues/prologue1.dialogue", "res://dialogues/prologue2.dialogue", "res://dialogues/prologue3.dialogue", "res://dialogues/prologue4.dialogue", "res://dialogues/prologue5.dialogue")
 
 [layer_names]
 
@@ -141,11 +141,10 @@ locale/translations_pot_files=PackedStringArray("res://config/dialogues/d.dialog
 [physics]
 
 common/physics_ticks_per_second=90
+3d/physics_engine="Dummy"
 2d/default_gravity=1380.0
 
 [rendering]
 
 textures/canvas_textures/default_texture_filter=0
-renderer/rendering_method="gl_compatibility"
-renderer/rendering_method.mobile="gl_compatibility"
 environment/defaults/default_clear_color=Color(0.31431597, 0.31431615, 0.3143161, 0)

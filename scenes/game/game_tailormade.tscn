@@ -1,15 +1,27 @@
-[gd_scene load_steps=12 format=3 uid="uid://dr3m4h6chre4f"]
+[gd_scene load_steps=15 format=3 uid="uid://dr3m4h6chre4f"]
 
 [ext_resource type="Script" uid="uid://cx62cx5dpw3fm" path="res://scenes/game/game_tailormade.gd" id="1_g1wqq"]
 [ext_resource type="PackedScene" uid="uid://cgfbvb4uighod" path="res://scenes/arena/arena_tailormade.tscn" id="2_fmcej"]
 [ext_resource type="PackedScene" uid="uid://bdm6wlm530nsh" path="res://scripts/components/cursor/cursor.tscn" id="2_g1wqq"]
 [ext_resource type="PackedScene" uid="uid://dyrsxd3nm3uyv" path="res://scripts/components/ui/game_ui/game_ui.tscn" id="3_fmcej"]
+[ext_resource type="Shader" uid="uid://dsy15rglggpa0" path="res://shaders/vignette/vignette.gdshader" id="3_u3fuu"]
 [ext_resource type="Shader" uid="uid://c2uah3fag4ja8" path="res://shaders/chromatic/chromatic_aberration.gdshader" id="5_wuhna"]
 [ext_resource type="PackedScene" uid="uid://cjk1v0j44yjpo" path="res://scripts/components/ui/cloth_aisle_ui/clothing_on_display.tscn" id="6_fmcej"]
 [ext_resource type="Script" uid="uid://bff6h8qr42n6i" path="res://scripts/components/ui/cloth_aisle_ui/cloth_aisle_ui.gd" id="6_u3fuu"]
 
 [sub_resource type="ViewportTexture" id="ViewportTexture_1ajxl"]
 viewport_path = NodePath("Viewport")
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_wuhna"]
+shader = ExtResource("3_u3fuu")
+shader_parameter/outerRadius = 4.000000190000001
+shader_parameter/MainAlpha = 1.0
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_1ajxl"]
+shader = ExtResource("5_wuhna")
+shader_parameter/circular_aberration = true
+shader_parameter/feather = 1.0
+shader_parameter/strength = Vector2(1, 1)
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_g1wqq"]
 content_margin_left = 0.0
@@ -65,6 +77,31 @@ metadata/_edit_lock_ = true
 
 [node name="Foreground" type="Parallax2D" parent="."]
 unique_name_in_owner = true
+
+[node name="VisualEffects" type="CanvasLayer" parent="."]
+unique_name_in_owner = true
+layer = 0
+
+[node name="Vignette" type="ColorRect" parent="VisualEffects"]
+unique_name_in_owner = true
+light_mask = 0
+material = SubResource("ShaderMaterial_wuhna")
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+color = Color(0, 0, 0, 1)
+
+[node name="Bloom" type="ColorRect" parent="VisualEffects"]
+material = SubResource("ShaderMaterial_1ajxl")
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
 
 [node name="UI" type="CanvasLayer" parent="."]
 unique_name_in_owner = true

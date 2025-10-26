@@ -62,7 +62,7 @@ signal confirmation_closed()
 @onready var support_button: Button = %SupportButton
 @onready var docs_button: Button = %DocsButton
 @onready var version_label: Label = %VersionLabel
-@onready var update_button: Button = %UpdateButton
+#@onready var update_button: Button = %UpdateButton
 
 @onready var search_and_replace := %SearchAndReplace
 
@@ -144,13 +144,13 @@ func _ready() -> void:
 
 	# Set up the update checker
 	version_label.text = "v%s" % plugin.get_version()
-	update_button.on_before_refresh = func on_before_refresh():
-		# Save everything
-		DMSettings.set_user_value("just_refreshed", {
-			current_file_path = current_file_path,
-			open_buffers = open_buffers
-		})
-		return true
+	#update_button.on_before_refresh = func on_before_refresh():
+		## Save everything
+		#DMSettings.set_user_value("just_refreshed", {
+			#current_file_path = current_file_path,
+			#open_buffers = open_buffers
+		#})
+		#return true
 
 	# Did we just load from an addon version refresh?
 	var just_refreshed = DMSettings.get_user_value("just_refreshed", null)
@@ -241,8 +241,8 @@ func load_from_version_refresh(just_refreshed: Dictionary) -> void:
 	else:
 		EditorInterface.set_main_screen_editor("Dialogue")
 
-	updated_dialog.dialog_text = DMConstants.translate(&"update.success").format({ version = update_button.get_version() })
-	updated_dialog.popup_centered()
+	#updated_dialog.dialog_text = DMConstants.translate(&"update.success").format({ version = update_button.get_version() })
+	#updated_dialog.popup_centered()
 
 
 func new_file(path: String, content: String = "") -> void:
@@ -428,7 +428,7 @@ func apply_theme() -> void:
 		docs_button.icon = get_theme_icon("Help", "EditorIcons")
 		docs_button.text = DMConstants.translate(&"docs")
 
-		update_button.apply_theme()
+		#update_button.apply_theme()
 
 		# Set up the effect menu
 		var popup: PopupMenu = insert_button.get_popup()
