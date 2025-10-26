@@ -24,11 +24,11 @@ var sfx := {
 	"ghost_haunt": preload("uid://xl1q50e1xttp"),
 
 	# Combat / character
-	"player_death": preload("uid://replace_with_uid_player_death"),
-	"enemy_death": preload("uid://replace_with_uid_enemy_death"),
-	"player_shoot": preload("uid://replace_with_uid_player_shoot"),
-	"enemy_shoot": preload("uid://replace_with_uid_enemy_shoot"),
-	"player_bomb": preload("uid://replace_with_uid_player_bomb"),
+	"player_death": preload("uid://kywepy3cov6q"),
+	"enemy_death": preload("uid://b0kgjv3ex87nh"),
+	"player_shoot": preload("uid://b0t276j08dod8"),
+	"enemy_shoot": preload("uid://bmpg6ehqsso00"),
+	"player_bomb": preload("uid://dooknh61q6cv"),
 
 	# Crafting / work
 	"cloth_make": preload("uid://c8p1y3cgo3xe0")
