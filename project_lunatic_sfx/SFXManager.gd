@@ -11,17 +11,17 @@ extends Node
 # ==============================================
 var sfx := {
 	# UI sounds
-	"ui_select": preload("uid://replace_with_uid_ui_select"),
+	"ui_select": preload("uid://pqa1aimdmi71"),
 	"ui_accept": preload("uid://dusm1p26bntke"),
-	"ui_cancel": preload("uid://replace_with_uid_ui_cancel"),
+	"ui_cancel": preload("uid://wtjh1jd1nwmd"),
 
 	# Gameplay sounds
 	"item_picked": preload("uid://bun7blg3wydfv"),
-	"money_cash": preload("uid://replace_with_uid_money_cash"),
-	"customer_leave": preload("uid://replace_with_uid_customer_leave"), # “buwok” sfx
+	"money_cash": preload("uid://cban4l5ojy35a"),
+	"customer_leave": preload("uid://d3r5gxdjitn5q"), # “buwok” sfx
 
 	# Ghost & haunting
-	"ghost_haunt": preload("uid://replace_with_uid_ghost_haunt"),
+	"ghost_haunt": preload("uid://xl1q50e1xttp"),
 
 	# Combat / character
 	"player_death": preload("uid://replace_with_uid_player_death"),
@@ -31,7 +31,7 @@ var sfx := {
 	"player_bomb": preload("uid://replace_with_uid_player_bomb"),
 
 	# Crafting / work
-	"cloth_make": preload("uid://replace_with_uid_cloth_make")
+	"cloth_make": preload("uid://c8p1y3cgo3xe0")
 }
 
 # ==============================================
