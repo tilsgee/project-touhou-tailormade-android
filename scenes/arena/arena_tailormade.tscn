@@ -1,4 +1,4 @@
-[gd_scene load_steps=15 format=3 uid="uid://di2xyd1vrqx1q"]
+[gd_scene load_steps=16 format=3 uid="uid://di2xyd1vrqx1q"]
 
 [ext_resource type="Script" uid="uid://bjjxuoevoe0la" path="res://scenes/arena/arena_tailormade.gd" id="1_24iwg"]
 [ext_resource type="Texture2D" uid="uid://7qbvrl5xlv4b" path="res://resources/images/references/layoutref.png" id="2_qldv2"]
@@ -11,6 +11,7 @@
 [ext_resource type="Texture2D" uid="uid://de60in8oi1p1f" path="res://icon.svg" id="5_qbmah"]
 [ext_resource type="Script" uid="uid://8xao80a6j4nt" path="res://scripts/components/interactable_solid/interactable_solid.gd" id="5_sera6"]
 [ext_resource type="Resource" uid="uid://5ud60m7enuuv" path="res://config/clothing_datas/green_blue_clthdata.tres" id="6_isuqa"]
+[ext_resource type="PackedScene" uid="uid://c673lbbcna1t7" path="res://scripts/components/entity/enemy_youkai/enemy_youkai.tscn" id="12_ksjjh"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_sfppn"]
 size = Vector2(40, 216)
@@ -87,9 +88,6 @@ position = Vector2(688, 432)
 [node name="ClothAisle9" parent="Interactables/Clothes" instance=ExtResource("3_qldv2")]
 position = Vector2(832, 432)
 
-[node name="ClothAisle10" parent="Interactables/Clothes" instance=ExtResource("3_qldv2")]
-position = Vector2(776, 32)
-
 [node name="ClothAisle11" parent="Interactables/Clothes" instance=ExtResource("3_qldv2")]
 position = Vector2(464, 32)
 
@@ -159,3 +157,6 @@ unique_name_in_owner = true
 
 [node name="OtherNodes" type="Node2D" parent="."]
 unique_name_in_owner = true
+
+[node name="EnemyYoukai" parent="." instance=ExtResource("12_ksjjh")]
+position = Vector2(984, 144)
