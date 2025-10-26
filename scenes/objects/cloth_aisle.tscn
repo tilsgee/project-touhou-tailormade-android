@@ -8,8 +8,9 @@
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_nosly"]
 size = Vector2(87, 50)
 
-[node name="ClothAisle" type="Node2D"]
+[node name="ClothAisle" type="Node2D" node_paths=PackedStringArray("_sprite_node")]
 script = ExtResource("1_uq476")
+_sprite_node = NodePath("Sprite2D")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
 material = ExtResource("1_5auri")
@@ -20,6 +21,7 @@ metadata/_edit_lock_ = true
 
 [node name="InteractableSolid" type="StaticBody2D" parent="." node_paths=PackedStringArray("_interactable_sprite")]
 collision_layer = 2049
+collision_mask = 2049
 script = ExtResource("3_jygf8")
 _interactable_sprite = NodePath("../Sprite2D")
 
