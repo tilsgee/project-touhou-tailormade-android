@@ -1,7 +1,7 @@
 extends Node2D
 
-const SPEED := 230.0
-const TERMINAL_VELOCITY := 500.0
+const SPEED := 150.0
+const TERMINAL_VELOCITY := 300.0
 const DELTA_MULTIPLIER := 15.0
 
 @onready var _player: Player = owner

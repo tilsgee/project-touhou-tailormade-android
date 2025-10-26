@@ -3,6 +3,8 @@ class_name Player extends Entity
 static var instance: Player
 static var enable_input: bool
 
+@onready var state := %State
+
 @onready var _behaviour := %Behaviour
 
 func _init() -> void:

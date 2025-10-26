@@ -13,27 +13,34 @@ const playlist := {
 	&"player": {
 		&"hit": [preload("uid://0one3yj6ydby")],
 		&"shoot": {
-			&"bullet_small": [preload("uid://dppborphhh82h")]
+			&"bullet_small": [preload("uid://b0t276j08dod8")]
 		},
-		&"dead": [preload("uid://cwmoyewknf0g2")]
+		&"dead": [preload("uid://kywepy3cov6q")],
+		&"bomb": [preload("uid://dooknh61q6cv")]
 	},
 	&"enemy": {
 		&"hit": [preload("uid://d28sods76t6gh")],
-		&"dead": [preload("uid://obosjmhwf2qs")]
-	},
-	&"boss": {
-		&"cirno": {},
-		&"clownpiece": {}
+		&"dead": [preload("uid://b0kgjv3ex87nh")],
+		&"ghost_haunt": [preload("uid://xl1q50e1xttp")],
+		&"shoot": [preload("uid://bmpg6ehqsso00")]
 	},
 	&"objects": {
-		&"explode": [preload("uid://d28sods76t6gh")]
+		&"explode": [preload("uid://d28sods76t6gh")],
+		&"item_picked": [preload("uid://bun7blg3wydfv")],
+		&"money_cash": [preload("uid://cban4l5ojy35a")],
+		&"customer_leave": [preload("uid://d3r5gxdjitn5q")], # “buwok” sfx
+		&"cloth": [preload("uid://c8p1y3cgo3xe0")]
 	},
 	&"dialogue": {
 		
 	},
 	&"ui": {
-		&"spellcard": [preload("uid://cnftrt0c3errp")]
-	}
+		&"spellcard": [preload("uid://cnftrt0c3errp")],
+		
+		&"ui_select": [preload("uid://pqa1aimdmi71")],
+		&"ui_accept": [preload("uid://dusm1p26bntke")],
+		&"ui_cancel": [preload("uid://wtjh1jd1nwmd")],
+	},
 }
 
 var stream_player: AudioStreamPlayer2D

@@ -4,8 +4,6 @@ const ONE_CLOTHING_TEX_RECT = preload("uid://bkb23u5dnn365")
 
 static var instance: GameUI
 
-@onready var _hover_stats := %HoverStats
-@onready var _dash_stats := %DashStats
 @onready var _score_label := %Score
 @onready var _power_stats := %PowerStats
 @onready var _power_label := %PowerLabel
@@ -53,11 +51,6 @@ func _ready() -> void:
 func _connect_signals() -> void:
 	Stats.stats_changed.connect(func(which: StringName, what: StringName, value: Variant):
 		match which:
-			&"hover":
-				var max_val: float = Stats.get_stats(&"hover", &"max_value")
-				_hover_stats.value = remap(value, 0.0, max_val, 0.0, 100.0)
-			&"dash":
-				_dash_stats.value = Stats.get_stats(&"dash", what)
 			&"score":
 				if what != &"value":
 					return
@@ -74,15 +67,6 @@ func _connect_signals() -> void:
 				_update_spell(what, value)
 			&"power":
 				_update_power(what, value)
-	)
-	Stats.stats_notification.connect(func(what: StringName, _value: Variant):
-		match what:
-			&"hover_full":
-				AutoTween.new(_hover_stats, &"modulate", Color.WHITE, 1.5).from(Color(10.0,10.0,10.0))
-			&"hover_depleted":
-				AutoTween.new(_hover_stats, &"modulate:r", 1.0, 1.5).from(10.0)
-			&"dash_full":
-				AutoTween.new(_dash_stats, &"scale", Vector2.ONE).from(Vector2(1.1, 1.1))
 	)
 	Player.instance.damaged.connect(func():
 		var new_rect := ColorRect.new()
