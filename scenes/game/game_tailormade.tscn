@@ -1,4 +1,4 @@
-[gd_scene load_steps=9 format=3 uid="uid://dr3m4h6chre4f"]
+[gd_scene load_steps=13 format=3 uid="uid://dr3m4h6chre4f"]
 
 [ext_resource type="Script" uid="uid://cx62cx5dpw3fm" path="res://scenes/game/game_tailormade.gd" id="1_g1wqq"]
 [ext_resource type="PackedScene" uid="uid://di2xyd1vrqx1q" path="res://scenes/arena/arena_tailormade.tscn" id="2_fmcej"]
@@ -6,9 +6,26 @@
 [ext_resource type="PackedScene" uid="uid://dyrsxd3nm3uyv" path="res://scripts/components/ui/game_ui/game_ui.tscn" id="3_fmcej"]
 [ext_resource type="PackedScene" uid="uid://bxfn0qwncpjx3" path="res://scripts/singletons/dialoguer/dialogue.tscn" id="4_u3fuu"]
 [ext_resource type="Shader" uid="uid://c2uah3fag4ja8" path="res://shaders/chromatic/chromatic_aberration.gdshader" id="5_wuhna"]
+[ext_resource type="PackedScene" uid="uid://cjk1v0j44yjpo" path="res://scripts/components/ui/cloth_aisle_ui/clothing_on_display.tscn" id="6_fmcej"]
+[ext_resource type="Script" uid="uid://bff6h8qr42n6i" path="res://scripts/components/ui/cloth_aisle_ui/cloth_aisle_ui.gd" id="6_u3fuu"]
 
 [sub_resource type="ViewportTexture" id="ViewportTexture_1ajxl"]
 viewport_path = NodePath("Viewport")
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_g1wqq"]
+content_margin_left = 0.0
+content_margin_top = 0.0
+content_margin_right = 0.0
+content_margin_bottom = 0.0
+bg_color = Color(0.101960786, 0.101960786, 0.101960786, 0.8627451)
+corner_radius_top_left = 3
+corner_radius_top_right = 3
+corner_radius_bottom_right = 3
+corner_radius_bottom_left = 3
+corner_detail = 5
+
+[sub_resource type="LabelSettings" id="LabelSettings_u3fuu"]
+font_size = 41
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_uwmyg"]
 shader = ExtResource("5_wuhna")
@@ -19,13 +36,19 @@ shader_parameter/strength = Vector2(1, 1)
 [node name="GameTailormade" type="Node"]
 script = ExtResource("1_g1wqq")
 
+[node name="Button" type="Button" parent="."]
+offset_left = 660.0
+offset_top = 229.0
+offset_right = 744.0
+offset_bottom = 489.0
+text = "ghfjghglgl"
+
 [node name="Scripts" type="Node" parent="."]
 
 [node name="Viewport" type="SubViewport" parent="."]
 unique_name_in_owner = true
 disable_3d = true
 transparent_bg = true
-handle_input_locally = false
 snap_2d_vertices_to_pixel = true
 anisotropic_filtering_level = 0
 canvas_item_default_texture_filter = 0
@@ -48,11 +71,68 @@ unique_name_in_owner = true
 unique_name_in_owner = true
 layer = 10
 
-[node name="Cursor" parent="UI" instance=ExtResource("2_g1wqq")]
-
 [node name="GameUI" parent="UI" instance=ExtResource("3_fmcej")]
 
 [node name="Dialogue" parent="UI" instance=ExtResource("4_u3fuu")]
+
+[node name="ClothAisleUi" type="Panel" parent="UI"]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 200.0
+offset_top = 100.0
+offset_right = -200.0
+offset_bottom = -100.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_g1wqq")
+script = ExtResource("6_u3fuu")
+
+[node name="VBoxContainer" type="VBoxContainer" parent="UI/ClothAisleUi"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Spacer" type="ReferenceRect" parent="UI/ClothAisleUi/VBoxContainer"]
+custom_minimum_size = Vector2(0, 30)
+layout_mode = 2
+
+[node name="Label" type="Label" parent="UI/ClothAisleUi/VBoxContainer"]
+layout_mode = 2
+text = "Cloth Aisle #1"
+label_settings = SubResource("LabelSettings_u3fuu")
+horizontal_alignment = 1
+
+[node name="Spacer2" type="ReferenceRect" parent="UI/ClothAisleUi/VBoxContainer"]
+custom_minimum_size = Vector2(0, 30)
+layout_mode = 2
+
+[node name="ClothesHbox" type="HBoxContainer" parent="UI/ClothAisleUi/VBoxContainer"]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(0, 260)
+layout_mode = 2
+theme_override_constants/separation = 24
+alignment = 1
+
+[node name="ClothingOnDisplay" parent="UI/ClothAisleUi/VBoxContainer/ClothesHbox" instance=ExtResource("6_fmcej")]
+layout_mode = 2
+
+[node name="ClothingOnDisplay2" parent="UI/ClothAisleUi/VBoxContainer/ClothesHbox" instance=ExtResource("6_fmcej")]
+layout_mode = 2
+
+[node name="ClothingOnDisplay3" parent="UI/ClothAisleUi/VBoxContainer/ClothesHbox" instance=ExtResource("6_fmcej")]
+layout_mode = 2
+
+[node name="ClothingOnDisplay4" parent="UI/ClothAisleUi/VBoxContainer/ClothesHbox" instance=ExtResource("6_fmcej")]
+layout_mode = 2
+
+[node name="ClothingOnDisplay5" parent="UI/ClothAisleUi/VBoxContainer/ClothesHbox" instance=ExtResource("6_fmcej")]
+layout_mode = 2
+
+[node name="Cursor" parent="UI" instance=ExtResource("2_g1wqq")]
 
 [node name="Abr" type="ColorRect" parent="UI"]
 material = SubResource("ShaderMaterial_uwmyg")
@@ -61,3 +141,5 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
+mouse_filter = 2
+metadata/_edit_lock_ = true

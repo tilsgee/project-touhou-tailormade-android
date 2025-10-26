@@ -1,13 +1,16 @@
-[gd_scene load_steps=12 format=3 uid="uid://di2xyd1vrqx1q"]
+[gd_scene load_steps=15 format=3 uid="uid://di2xyd1vrqx1q"]
 
-[ext_resource type="Script" uid="uid://b1c0pkx4cqbrp" path="res://scenes/arena/arena.gd" id="1_nosly"]
+[ext_resource type="Script" uid="uid://bjjxuoevoe0la" path="res://scenes/arena/arena_tailormade.gd" id="1_24iwg"]
 [ext_resource type="Texture2D" uid="uid://7qbvrl5xlv4b" path="res://resources/images/references/layoutref.png" id="2_qldv2"]
 [ext_resource type="PackedScene" uid="uid://coiahum1vt1ou" path="res://scenes/objects/cloth_aisle.tscn" id="3_qldv2"]
 [ext_resource type="Material" uid="uid://bkdpfknauvqrh" path="res://config/materials/interactable_border_shadermat.tres" id="3_sera6"]
 [ext_resource type="PackedScene" uid="uid://cde6s3i4jov3g" path="res://scripts/components/camera/camera.tscn" id="3_sfppn"]
 [ext_resource type="PackedScene" uid="uid://bnq3t3c1imot1" path="res://scripts/components/entity/player/player.tscn" id="4_20rqo"]
+[ext_resource type="Script" uid="uid://dg24u3pv2rk8e" path="res://scripts/libs/clothing_data/clothing_data.gd" id="4_24iwg"]
+[ext_resource type="Resource" uid="uid://qjc5381tob1f" path="res://config/clothing_datas/red_green_clthdata.tres" id="5_ksjjh"]
 [ext_resource type="Texture2D" uid="uid://de60in8oi1p1f" path="res://icon.svg" id="5_qbmah"]
 [ext_resource type="Script" uid="uid://8xao80a6j4nt" path="res://scripts/components/interactable_solid/interactable_solid.gd" id="5_sera6"]
+[ext_resource type="Resource" uid="uid://5ud60m7enuuv" path="res://config/clothing_datas/green_blue_clthdata.tres" id="6_isuqa"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_sfppn"]
 size = Vector2(40, 216)
@@ -19,7 +22,7 @@ size = Vector2(1089, 64)
 size = Vector2(64, 682.00024)
 
 [node name="ArenaTailormade" type="Node2D"]
-script = ExtResource("1_nosly")
+script = ExtResource("1_24iwg")
 
 [node name="CanvasLayer" type="CanvasLayer" parent="."]
 layer = -1
@@ -54,9 +57,11 @@ texture = ExtResource("2_qldv2")
 [node name="Interactables" type="Node2D" parent="."]
 
 [node name="Clothes" type="Node2D" parent="Interactables"]
+unique_name_in_owner = true
 
 [node name="ClothAisle" parent="Interactables/Clothes" instance=ExtResource("3_qldv2")]
 position = Vector2(157, 287)
+clothing_list = Array[ExtResource("4_24iwg")]([ExtResource("5_ksjjh"), ExtResource("6_isuqa")])
 
 [node name="ClothAisle2" parent="Interactables/Clothes" instance=ExtResource("3_qldv2")]
 position = Vector2(360, 208)

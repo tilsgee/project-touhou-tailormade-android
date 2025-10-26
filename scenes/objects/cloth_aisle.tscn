@@ -1,6 +1,7 @@
-[gd_scene load_steps=5 format=3 uid="uid://coiahum1vt1ou"]
+[gd_scene load_steps=6 format=3 uid="uid://coiahum1vt1ou"]
 
 [ext_resource type="Material" uid="uid://bkdpfknauvqrh" path="res://config/materials/interactable_border_shadermat.tres" id="1_5auri"]
+[ext_resource type="Script" uid="uid://bx0a8cphgq1e7" path="res://scenes/objects/cloth_aisle.gd" id="1_uq476"]
 [ext_resource type="Texture2D" uid="uid://de60in8oi1p1f" path="res://icon.svg" id="2_uq476"]
 [ext_resource type="Script" uid="uid://8xao80a6j4nt" path="res://scripts/components/interactable_solid/interactable_solid.gd" id="3_jygf8"]
 
@@ -8,6 +9,7 @@
 size = Vector2(87, 50)
 
 [node name="ClothAisle" type="Node2D"]
+script = ExtResource("1_uq476")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
 material = ExtResource("1_5auri")
@@ -25,3 +27,5 @@ _interactable_sprite = NodePath("../Sprite2D")
 position = Vector2(43.5, 25)
 shape = SubResource("RectangleShape2D_nosly")
 metadata/_edit_lock_ = true
+
+[connection signal="player_interacted" from="InteractableSolid" to="." method="_on_interactable_solid_player_interacted"]

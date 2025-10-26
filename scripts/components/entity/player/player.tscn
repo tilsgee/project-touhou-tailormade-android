@@ -1,4 +1,4 @@
-[gd_scene load_steps=20 format=3 uid="uid://bnq3t3c1imot1"]
+[gd_scene load_steps=18 format=3 uid="uid://bnq3t3c1imot1"]
 
 [ext_resource type="Script" uid="uid://d1jn4o30sfwvx" path="res://scripts/components/entity/player/player.gd" id="1_8mv8a"]
 [ext_resource type="Texture2D" uid="uid://de60in8oi1p1f" path="res://icon.svg" id="2_1su07"]
@@ -10,10 +10,8 @@
 [ext_resource type="PackedScene" uid="uid://ctyei6ne0fqea" path="res://scripts/components/shoot/shoot_component.tscn" id="9_j1ofm"]
 [ext_resource type="PackedScene" uid="uid://cdt5hfmpe0553" path="res://scripts/libs/hitscan/hitscan.tscn" id="10_j1ofm"]
 [ext_resource type="PackedScene" uid="uid://cgsn8y8emb4lv" path="res://scripts/components/health/health_component.tscn" id="11_jtuxu"]
-[ext_resource type="Script" uid="uid://vpgrsl5l47ba" path="res://scripts/components/entity/player/scripts/spellcard/spellcard.gd" id="12_3qg30"]
 [ext_resource type="PackedScene" uid="uid://64t337w2n4fs" path="res://scripts/components/hitbox/hitbox_component.tscn" id="12_4yr2i"]
 [ext_resource type="PackedScene" uid="uid://cn67m3chiffav" path="res://scripts/components/entity/player/ssm/pp_ssm.tscn" id="12_8pf52"]
-[ext_resource type="PackedScene" uid="uid://dfrckn0yvqqpf" path="res://scripts/components/entity/player/scripts/spellcard/projectile/sc_hitscan.tscn" id="14_f0ha5"]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_yjq4j"]
 radius = 8.0
@@ -47,9 +45,6 @@ script = ExtResource("2_xbowy")
 [node name="PositionTicker" type="Node" parent="Scripts"]
 unique_name_in_owner = true
 script = ExtResource("3_l8lx2")
-
-[node name="Interact" type="Node" parent="Scripts"]
-script = ExtResource("4_xbowy")
 
 [node name="Icon" type="Sprite2D" parent="."]
 unique_name_in_owner = true
@@ -136,20 +131,8 @@ angle_randomness = 2.0
 projectile_spread = 0.01
 projectile_spread_degrees = 10.0
 
-[node name="Spellcard" type="Node2D" parent="Controls"]
-script = ExtResource("12_3qg30")
-
-[node name="ShootCompSC" parent="Controls/Spellcard" instance=ExtResource("9_j1ofm")]
-projectile_scene = ExtResource("14_f0ha5")
-projectile_ammount = 16
-projectile_speed = 10.0
-damage = 10
-projectile_lifetime = 1.0
-rounds_per_minute = 1500
-projectile_spread = 0.01
-projectile_spread_degrees = 360.0
-curve_factor = 0.0
-circular_gap = 64.0
+[node name="Interacting" type="Node2D" parent="Controls"]
+script = ExtResource("4_xbowy")
 
 [node name="Colliders" type="Node2D" parent="."]
 

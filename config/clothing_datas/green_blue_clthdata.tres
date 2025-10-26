@@ -1,0 +1,19 @@
+[gd_resource type="Resource" script_class="ClothingData" load_steps=4 format=3 uid="uid://5ud60m7enuuv"]
+
+[ext_resource type="Script" uid="uid://dg24u3pv2rk8e" path="res://scripts/libs/clothing_data/clothing_data.gd" id="1_mbdhp"]
+
+[sub_resource type="Gradient" id="Gradient_mbdhp"]
+colors = PackedColorArray(0.035927534, 0.6428236, 0, 1, 0, 0.16470589, 1, 1)
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_pb6kv"]
+gradient = SubResource("Gradient_mbdhp")
+width = 100
+height = 260
+fill_from = Vector2(0.5, 0)
+fill_to = Vector2(0.5, 1)
+
+[resource]
+script = ExtResource("1_mbdhp")
+cloth_texture = SubResource("GradientTexture2D_pb6kv")
+cloth_identifier = "green_blue"
+metadata/_custom_type_script = "uid://dg24u3pv2rk8e"

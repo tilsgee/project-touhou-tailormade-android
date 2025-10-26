@@ -1,0 +1,37 @@
+[gd_scene load_steps=8 format=3 uid="uid://cjk1v0j44yjpo"]
+
+[ext_resource type="Script" uid="uid://ccbkf58e3lkpr" path="res://scripts/components/ui/cloth_aisle_ui/clothing_on_display.gd" id="1_d2tdc"]
+[ext_resource type="Texture2D" uid="uid://ddkb5wkm5c632" path="res://resources/images/sprites/placeholders/clothing.svg" id="2_rswav"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_u3fuu"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_wuhna"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_1ajxl"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_uwmyg"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_u8pgk"]
+
+[node name="ClothingOnDisplay" type="Button" node_paths=PackedStringArray("_sprite_node")]
+theme_override_styles/normal = SubResource("StyleBoxEmpty_u3fuu")
+theme_override_styles/pressed = SubResource("StyleBoxEmpty_wuhna")
+theme_override_styles/hover = SubResource("StyleBoxEmpty_1ajxl")
+theme_override_styles/disabled = SubResource("StyleBoxEmpty_uwmyg")
+theme_override_styles/focus = SubResource("StyleBoxEmpty_u8pgk")
+script = ExtResource("1_d2tdc")
+_sprite_node = NodePath("MiddleCtrl/Sprite2D")
+_sprite_image = ExtResource("2_rswav")
+
+[node name="MiddleCtrl" type="Control" parent="."]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Sprite2D" type="Sprite2D" parent="MiddleCtrl"]
+texture = ExtResource("2_rswav")

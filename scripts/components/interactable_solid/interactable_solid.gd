@@ -1,4 +1,6 @@
-extends StaticBody2D
+class_name InteractableSolid extends StaticBody2D
+
+signal player_interacted
 
 const INTERACTABLE_BORDER_SHADERMAT = preload("uid://bkdpfknauvqrh") # inactive at start
 
@@ -27,3 +29,7 @@ func deselect():
 	if _current_shadermat == _new_shadermat_res:
 		_current_shadermat.set_shader_parameter("active", false)
 	is_selected = false
+
+
+func interact():
+	player_interacted.emit()
