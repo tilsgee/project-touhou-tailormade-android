@@ -1,0 +1,162 @@
+[gd_scene load_steps=16 format=3 uid="uid://di2xyd1vrqx1q"]
+
+[ext_resource type="Script" uid="uid://bjjxuoevoe0la" path="res://scenes/arena/arena_tailormade.gd" id="1_24iwg"]
+[ext_resource type="Texture2D" uid="uid://7qbvrl5xlv4b" path="res://resources/images/references/layoutref.png" id="2_qldv2"]
+[ext_resource type="PackedScene" uid="uid://coiahum1vt1ou" path="res://scenes/objects/cloth_aisle.tscn" id="3_qldv2"]
+[ext_resource type="Material" uid="uid://bkdpfknauvqrh" path="res://config/materials/interactable_border_shadermat.tres" id="3_sera6"]
+[ext_resource type="PackedScene" uid="uid://cde6s3i4jov3g" path="res://scripts/components/camera/camera.tscn" id="3_sfppn"]
+[ext_resource type="PackedScene" uid="uid://bnq3t3c1imot1" path="res://scripts/components/entity/player/player.tscn" id="4_20rqo"]
+[ext_resource type="Script" uid="uid://dg24u3pv2rk8e" path="res://scripts/libs/clothing_data/clothing_data.gd" id="4_24iwg"]
+[ext_resource type="Resource" uid="uid://qjc5381tob1f" path="res://config/clothing_datas/red_green_clthdata.tres" id="5_ksjjh"]
+[ext_resource type="Texture2D" uid="uid://de60in8oi1p1f" path="res://icon.svg" id="5_qbmah"]
+[ext_resource type="Script" uid="uid://8xao80a6j4nt" path="res://scripts/components/interactable_solid/interactable_solid.gd" id="5_sera6"]
+[ext_resource type="Resource" uid="uid://5ud60m7enuuv" path="res://config/clothing_datas/green_blue_clthdata.tres" id="6_isuqa"]
+[ext_resource type="PackedScene" uid="uid://c673lbbcna1t7" path="res://scripts/components/entity/enemy_youkai/enemy_youkai.tscn" id="12_ksjjh"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_sfppn"]
+size = Vector2(40, 216)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_aj7ud"]
+size = Vector2(1089, 64)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_5d4jp"]
+size = Vector2(64, 682.00024)
+
+[node name="ArenaTailormade" type="Node2D"]
+script = ExtResource("1_24iwg")
+
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
+layer = -1
+
+[node name="ColorRect" type="ColorRect" parent="CanvasLayer"]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0.13556954, 0.22299549, 0.28975618, 1)
+
+[node name="ReferenceRect" type="ReferenceRect" parent="CanvasLayer"]
+offset_right = 960.0
+offset_bottom = 540.0
+border_width = 7.0
+
+[node name="Scripts" type="Node" parent="."]
+
+[node name="Debug" type="Node" parent="Scripts"]
+
+[node name="Backgrounds" type="Node2D" parent="."]
+position = Vector2(3.0517578e-05, 0)
+scale = Vector2(0.99999994, 0.99999994)
+
+[node name="AreaRef" type="Sprite2D" parent="Backgrounds"]
+self_modulate = Color(1, 1, 1, 0.24313726)
+position = Vector2(480.49997, 263.5)
+scale = Vector2(1.0802083, 1.1055555)
+texture = ExtResource("2_qldv2")
+
+[node name="Interactables" type="Node2D" parent="."]
+
+[node name="Clothes" type="Node2D" parent="Interactables"]
+unique_name_in_owner = true
+
+[node name="ClothAisle" parent="Interactables/Clothes" instance=ExtResource("3_qldv2")]
+position = Vector2(157, 287)
+clothing_list = Array[ExtResource("4_24iwg")]([ExtResource("5_ksjjh"), ExtResource("6_isuqa")])
+
+[node name="ClothAisle2" parent="Interactables/Clothes" instance=ExtResource("3_qldv2")]
+position = Vector2(360, 208)
+
+[node name="ClothAisle3" parent="Interactables/Clothes" instance=ExtResource("3_qldv2")]
+position = Vector2(448, 208)
+
+[node name="ClothAisle4" parent="Interactables/Clothes" instance=ExtResource("3_qldv2")]
+position = Vector2(616, 304)
+
+[node name="ClothAisle5" parent="Interactables/Clothes" instance=ExtResource("3_qldv2")]
+position = Vector2(256, 416)
+
+[node name="ClothAisle6" parent="Interactables/Clothes" instance=ExtResource("3_qldv2")]
+position = Vector2(344, 416)
+
+[node name="ClothAisle7" parent="Interactables/Clothes" instance=ExtResource("3_qldv2")]
+position = Vector2(600, 432)
+
+[node name="ClothAisle8" parent="Interactables/Clothes" instance=ExtResource("3_qldv2")]
+position = Vector2(688, 432)
+
+[node name="ClothAisle9" parent="Interactables/Clothes" instance=ExtResource("3_qldv2")]
+position = Vector2(832, 432)
+
+[node name="ClothAisle11" parent="Interactables/Clothes" instance=ExtResource("3_qldv2")]
+position = Vector2(464, 32)
+
+[node name="ClothAisle12" parent="Interactables/Clothes" instance=ExtResource("3_qldv2")]
+position = Vector2(304, 16)
+
+[node name="ClothAisle13" parent="Interactables/Clothes" instance=ExtResource("3_qldv2")]
+position = Vector2(216, 16)
+
+[node name="Cashier" type="Node2D" parent="Interactables"]
+position = Vector2(64, 152)
+
+[node name="Sprite2D" type="Sprite2D" parent="Interactables/Cashier"]
+material = ExtResource("3_sera6")
+scale = Vector2(0.31249997, 1.6875)
+texture = ExtResource("5_qbmah")
+centered = false
+
+[node name="InteractableSolid" type="StaticBody2D" parent="Interactables/Cashier" node_paths=PackedStringArray("_interactable_sprite")]
+collision_layer = 2049
+script = ExtResource("5_sera6")
+_interactable_sprite = NodePath("../Sprite2D")
+
+[node name="SolidCollision" type="CollisionShape2D" parent="Interactables/Cashier/InteractableSolid"]
+position = Vector2(20, 108)
+shape = SubResource("RectangleShape2D_sfppn")
+metadata/_edit_lock_ = true
+
+[node name="Camera" parent="." instance=ExtResource("3_sfppn")]
+limit_left = 0
+limit_top = 0
+limit_right = 960
+limit_bottom = 540
+
+[node name="Player" parent="." instance=ExtResource("4_20rqo")]
+position = Vector2(511, 331)
+
+[node name="Walls" type="Node2D" parent="."]
+position = Vector2(3.0517578e-05, 0)
+scale = Vector2(0.99999994, 0.99999994)
+
+[node name="BorderWall" type="StaticBody2D" parent="Walls"]
+position = Vector2(-3.0517578e-05, 0)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Walls/BorderWall"]
+position = Vector2(469.49994, -33.999977)
+scale = Vector2(0.9999998, 0.9999998)
+shape = SubResource("RectangleShape2D_aj7ud")
+
+[node name="CollisionShape2D2" type="CollisionShape2D" parent="Walls/BorderWall"]
+position = Vector2(469.49994, 572)
+scale = Vector2(0.9999998, 0.9999998)
+shape = SubResource("RectangleShape2D_aj7ud")
+
+[node name="CollisionShape2D3" type="CollisionShape2D" parent="Walls/BorderWall"]
+position = Vector2(-30.000004, 270.00003)
+scale = Vector2(0.99999964, 0.99999964)
+shape = SubResource("RectangleShape2D_5d4jp")
+
+[node name="CollisionShape2D4" type="CollisionShape2D" parent="Walls/BorderWall"]
+position = Vector2(992, 270.00003)
+scale = Vector2(0.99999964, 0.99999964)
+shape = SubResource("RectangleShape2D_5d4jp")
+
+[node name="PooledNodes" type="Node2D" parent="."]
+unique_name_in_owner = true
+
+[node name="OtherNodes" type="Node2D" parent="."]
+unique_name_in_owner = true
+
+[node name="EnemyYoukai" parent="." instance=ExtResource("12_ksjjh")]
+position = Vector2(984, 144)

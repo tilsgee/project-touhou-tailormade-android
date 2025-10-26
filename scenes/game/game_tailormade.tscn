@@ -1,7 +1,7 @@
 [gd_scene load_steps=13 format=3 uid="uid://dr3m4h6chre4f"]
 
 [ext_resource type="Script" uid="uid://cx62cx5dpw3fm" path="res://scenes/game/game_tailormade.gd" id="1_g1wqq"]
-[ext_resource type="PackedScene" uid="uid://di2xyd1vrqx1q" path="res://scenes/arena/arena_tailormade.tscn" id="2_fmcej"]
+[ext_resource type="PackedScene" uid="uid://cgfbvb4uighod" path="res://scenes/arena/arena_tailormade.tscn" id="2_fmcej"]
 [ext_resource type="PackedScene" uid="uid://bdm6wlm530nsh" path="res://scripts/components/cursor/cursor.tscn" id="2_g1wqq"]
 [ext_resource type="PackedScene" uid="uid://dyrsxd3nm3uyv" path="res://scripts/components/ui/game_ui/game_ui.tscn" id="3_fmcej"]
 [ext_resource type="PackedScene" uid="uid://bxfn0qwncpjx3" path="res://scripts/singletons/dialoguer/dialogue.tscn" id="4_u3fuu"]
@@ -56,7 +56,7 @@ audio_listener_enable_2d = true
 size = Vector2i(648, 368)
 render_target_update_mode = 4
 
-[node name="ArenaTailormade" parent="Viewport" instance=ExtResource("2_fmcej")]
+[node name="ArenaTailormade2" parent="Viewport" instance=ExtResource("2_fmcej")]
 
 [node name="GameView" type="Sprite2D" parent="."]
 unique_name_in_owner = true
