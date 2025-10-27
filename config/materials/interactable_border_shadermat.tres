@@ -5,7 +5,7 @@
 [resource]
 shader = ExtResource("1_0e2h6")
 shader_parameter/active = false
-shader_parameter/thickness = 5.0000002375
+shader_parameter/thickness = 2.000000095
 shader_parameter/ring_count = 16
 shader_parameter/ring_offset = 0.0
 shader_parameter/outline_color = Color(1, 1, 1, 1)

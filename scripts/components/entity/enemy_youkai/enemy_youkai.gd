@@ -61,7 +61,7 @@ func _find_random_aisle():
 
 func _shoot():
 	_shoot_comp.shoot()
-	get_tree().create_timer(randf_range(1.0, 2.5)).timeout.connect(_shoot)
+	get_tree().create_timer(randf_range(1.0, 3.5)).timeout.connect(_shoot)
 	
 #func _jump() -> void:
 	#velocity.y = -POWER

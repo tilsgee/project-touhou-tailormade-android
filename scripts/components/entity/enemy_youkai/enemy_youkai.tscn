@@ -32,7 +32,7 @@ animations = [{
 size = Vector2(48, 48)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_p2nw2"]
-size = Vector2(48, 48)
+size = Vector2(24, 36)
 
 [node name="EnemyYoukai" type="CharacterBody2D"]
 y_sort_enabled = true
@@ -73,6 +73,7 @@ shape = SubResource("RectangleShape2D_0onyc")
 visible = false
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="TouchDamage"]
+position = Vector2(-2, 1)
 shape = SubResource("RectangleShape2D_p2nw2")
 
 [node name="ShootComponent" parent="." instance=ExtResource("7_7uup3")]
@@ -80,12 +81,11 @@ unique_name_in_owner = true
 visible = false
 projectile_scene = ExtResource("8_avc73")
 mechanism = 0
-projectile_ammount = 16
 projectile_speed = 200.0
 projectile_lifetime = 10.0
 rounds_per_minute = 500
 projectile_spread = 0.01
-projectile_spread_degrees = 360.0
+projectile_spread_degrees = 30.0
 curve_factor = 0.0
 
 [node name="RetargetTimer" type="Timer" parent="."]

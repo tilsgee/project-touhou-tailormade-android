@@ -29,7 +29,10 @@ const playlist := {
 		&"item_picked": [preload("uid://bun7blg3wydfv")],
 		&"money_cash": [preload("uid://cban4l5ojy35a")],
 		&"customer_leave": [preload("uid://d3r5gxdjitn5q")], # “buwok” sfx
-		&"cloth": [preload("uid://c8p1y3cgo3xe0")]
+		&"cloth": [preload("uid://c8p1y3cgo3xe0")],
+		
+		&"coin": [preload("uid://el4yiu6itehy")],
+		&"drop": [preload("uid://ccp4pm8usvkci")]
 	},
 	&"dialogue": {
 		

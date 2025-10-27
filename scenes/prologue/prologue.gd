@@ -13,11 +13,15 @@ var _active_s = null
 
 func _unhandled_input(event: InputEvent) -> void:
 	if event.is_action_pressed("ui_cancel"):
+		_fadeout()
 		DialogueManagerBalloon.instance.hide()
 		await AutoTween.new(_active_s, &"modulate:a", 0.0, 0.5, Tween.TRANS_LINEAR).from(1.0).finished
 		SceneManager.change_scene(next_scene, true)
 
 func _ready() -> void:
+	var init_vol = %BGM.volume_db
+	AutoTween.new(%BGM, "volume_db", init_vol, 3.0, Tween.TRANS_LINEAR).from(-64.0)
+	%BGM.play.call_deferred()
 	var old_s = null
 	for i in _sprites.size():
 		var s := _sprites[i]
@@ -32,5 +36,9 @@ func _ready() -> void:
 		await DialogueManager.dialogue_ended
 		old_s = s
 
+	_fadeout()
 	await AutoTween.new(_sprites[-1], &"modulate:a", 0.0, 1.0, Tween.TRANS_LINEAR).from(1.0).finished
 	SceneManager.change_scene(next_scene, true)
+	
+func _fadeout() -> void:
+	AutoTween.new(%BGM, "volume_db", -64.0, 1.0, Tween.TRANS_LINEAR)

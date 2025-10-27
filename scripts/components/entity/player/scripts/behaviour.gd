@@ -58,7 +58,7 @@ func damage(args: Dictionary) -> void:
 	_player.hitbox_component.active = false
 	player_sub_health -= 1
 	
-	SFX.new(_player, SFX.playlist.player.hit, {&"volume_db": 2.0})
+	SFX.new(_player, SFX.playlist.player.hit, {&"volume_db": -6.0})
 	VFX.Particles.BloodSplat.new(_player.global_position)
 	
 	if !_player.health_component.is_dead:

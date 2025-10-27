@@ -1,4 +1,4 @@
-[gd_scene load_steps=16 format=3 uid="uid://dr3m4h6chre4f"]
+[gd_scene load_steps=17 format=3 uid="uid://dr3m4h6chre4f"]
 
 [ext_resource type="Script" uid="uid://cx62cx5dpw3fm" path="res://scenes/game/game_tailormade.gd" id="1_g1wqq"]
 [ext_resource type="PackedScene" uid="uid://cgfbvb4uighod" path="res://scenes/arena/arena_tailormade.tscn" id="2_fmcej"]
@@ -9,6 +9,7 @@
 [ext_resource type="Shader" uid="uid://c2uah3fag4ja8" path="res://shaders/chromatic/chromatic_aberration.gdshader" id="5_wuhna"]
 [ext_resource type="PackedScene" uid="uid://cjk1v0j44yjpo" path="res://scripts/components/ui/cloth_aisle_ui/clothing_on_display.tscn" id="6_fmcej"]
 [ext_resource type="Script" uid="uid://bff6h8qr42n6i" path="res://scripts/components/ui/cloth_aisle_ui/cloth_aisle_ui.gd" id="6_u3fuu"]
+[ext_resource type="AudioStream" uid="uid://1w0mkbyblp07" path="res://external_assets/opengameart/VViard-fingersnap-bar.ogg" id="10_1ajxl"]
 
 [sub_resource type="ViewportTexture" id="ViewportTexture_1ajxl"]
 viewport_path = NodePath("Viewport")
@@ -176,3 +177,8 @@ grow_horizontal = 2
 grow_vertical = 2
 mouse_filter = 2
 metadata/_edit_lock_ = true
+
+[node name="BGM" type="AudioStreamPlayer" parent="."]
+unique_name_in_owner = true
+stream = ExtResource("10_1ajxl")
+volume_db = -20.0

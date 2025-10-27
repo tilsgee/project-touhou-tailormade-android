@@ -53,6 +53,7 @@ var _coin: int:
 
 var _timer: SceneTreeTimer
 var _init_y: float
+var _touched_ground := false
 
 static func create(where: Vector2, which := TYPE.AUTO, force_pickup := false, ammount := 0) -> void:
 	var actual_ammount: int
@@ -104,6 +105,7 @@ func _pool_unclaim() -> void:
 		_timer.timeout.disconnect(_deactivate)
 
 func _claim() -> void:
+	_touched_ground = false
 	_activate.call_deferred()
 	_gravity.toggle(true)
 	if !force_pick:
@@ -125,8 +127,11 @@ func _physics_process(delta: float) -> void:
 		_pick(dist, delta)
 		if _gravity.active:
 			_gravity.toggle(false)
-	elif global_position.y >= _init_y + Y_DROP:
+	elif global_position.y >= _init_y + Y_DROP and !_touched_ground:
 		velocity = Vector2.ZERO
+		_gravity.toggle(false)
+		_touched_ground = true
+		SFX.new(Player.instance, SFX.playlist.objects.drop, {&"volume_db": -6.0}).no_pitch_change()
 	move_and_slide()
 
 func _activate() -> void:
@@ -159,10 +164,13 @@ func _pick(dist: float, delta: float) -> void:
 		_score += BASE_SCORE * type
 		match type:
 			TYPE.BOMB: _bomb += 1
-			TYPE.POWER: _power += 1
+			TYPE.POWER:
+				_power += 1
+				SFX.new(Player.instance, SFX.playlist.objects.money_cash, {&"volume_db": -16.0}).no_pitch_change()
 			TYPE.HEALTH: _player_sub_health += 1
 			TYPE.POINT:
 				_coin += 1
+				SFX.new(Player.instance, SFX.playlist.objects.coin, {&"volume_db": -4.0}).no_pitch_change()
 				HitLabel.create(1, Player.instance, Vector2(0.0, -92.0)).scale = Vector2(0.7, 0.7)
 		_deactivate()
 

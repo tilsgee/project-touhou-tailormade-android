@@ -6,6 +6,8 @@ signal open_cloth_aisle(list : Array[ClothingData])
 @export var clothing_list : Array[ClothingData]
 @export var _sprite_node : Sprite2D
 
+@onready var _sprite := %Sprite2D
+
 var middle_pos : Vector2:
 	get:
 		if _sprite_node and _sprite_node.texture != null:
@@ -13,6 +15,9 @@ var middle_pos : Vector2:
 		else:
 			return self.global_position
 
+func _ready() -> void:
+	var col := Vector3(randf_range(0.0,1.0), randf_range(0.0,1.0), randf_range(0.0,1.0)).normalized()
+	_sprite.modulate = Color(col.x, col.y, col.z)
 
 func _on_interactable_solid_player_interacted() -> void:
 	var _aisle_data := {

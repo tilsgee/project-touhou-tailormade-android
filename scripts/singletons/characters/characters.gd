@@ -8,5 +8,5 @@ const portraits := {
 		&"Normal": &""
 	}
 }
-var default_sfx := &"res://addons/dialogue_manager/assets/default_sfx.wav"
+#var default_sfx := &"res://addons/dialogue_manager/assets/default_sfx.wav"
 var cached_portraits := {}

@@ -31,7 +31,10 @@ func _init() -> void:
 func _ready() -> void:
 	get_tree().paused = false
 	_update_viewport()
-
+	var init_vol = %BGM.volume_db
+	AutoTween.new(%BGM, "volume_db", init_vol, 1.0, Tween.TRANS_LINEAR).from(-64.0)
+	%BGM.play.call_deferred()
+	
 func _input(event: InputEvent) -> void:
 	viewport.push_input(event)
 	

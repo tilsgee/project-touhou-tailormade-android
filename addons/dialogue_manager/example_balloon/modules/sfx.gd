@@ -30,6 +30,9 @@ func _process_sfx() -> void:
 	var curr_sfx = sfx_player.get_meta(PATH) if sfx_player.has_meta(PATH) else null
 	var sfx_cache: Dictionary = sfx_player.get_meta(CACHE)
 	
+	if sfx_path.is_empty():
+		return
+	
 	if curr_sfx == sfx_path:
 		return
 	
@@ -47,7 +50,7 @@ func _process_sfx() -> void:
 func  _process_sfx_path() -> StringName:
 	var characters = get_node_or_null("/root/Characters")
 	var character := dm_balloon.dialogue_line.character.capitalize()
-	var default_sfx = characters.get(&"default_sfx") if characters.get(&"default_sfx") != null else &"res://addons/dialogue_manager/assets/default_sfx.wav"
+	var default_sfx = characters.get(&"default_sfx") if characters.get(&"default_sfx") != null else &""
 	
 	if characters == null:
 		return default_sfx

@@ -1,10 +1,10 @@
 [gd_scene load_steps=4 format=3 uid="uid://bam3ja14c33gu"]
 
 [ext_resource type="Script" uid="uid://cn2htd0vub0tt" path="res://scripts/libs/projectiles/projectile.gd" id="1_pqgu6"]
-[ext_resource type="Texture2D" uid="uid://bxwvg6kk80vpu" path="res://resources/images/sprites/projectiles/bullets/orb_1.png" id="2_pqgu6"]
+[ext_resource type="Texture2D" uid="uid://cragx035vv0yq" path="res://resources/images/sprites/projectiles/bullets/orb_missile2.png" id="2_pqgu6"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_pqgu6"]
-radius = 8.0
+radius = 4.0
 
 [node name="Projectile" type="CollisionShape2D"]
 texture_filter = 1
