@@ -18,14 +18,14 @@ unique_name_in_owner = true
 points = PackedVector2Array(640, 0, 0, 0)
 width = 5.0
 width_curve = ExtResource("2_f0nst")
-default_color = Color(1, 0.344583, 0.45050216, 1)
+default_color = Color(0.69324, 0.78596747, 1, 1)
 
 [node name="Line2DIn" type="Line2D" parent="."]
 unique_name_in_owner = true
 points = PackedVector2Array(640, 0, 0, 0)
 width = 3.0
 width_curve = ExtResource("2_f0nst")
-default_color = Color(1, 0.6766158, 0.6722339, 1)
+default_color = Color(0.9752602, 0.97169966, 0.98157007, 1)
 
 [node name="RayCast2D" type="RayCast2D" parent="."]
 unique_name_in_owner = true

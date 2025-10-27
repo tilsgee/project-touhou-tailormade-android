@@ -6,7 +6,7 @@
 [sub_resource type="SegmentShape2D" id="SegmentShape2D_sy6p1"]
 b = Vector2(640, 0)
 
-[node name="s" type="CollisionShape2D"]
+[node name="Hitscan" type="CollisionShape2D"]
 shape = SubResource("SegmentShape2D_sy6p1")
 script = ExtResource("1_c18d7")
 collision_mask = Array[int]([1, 9])
@@ -14,16 +14,16 @@ collision_mask = Array[int]([1, 9])
 [node name="Line2D" type="Line2D" parent="."]
 unique_name_in_owner = true
 points = PackedVector2Array(640, 0, 0, 0)
-width = 4.0
+width = 5.0
 width_curve = ExtResource("2_q0v3g")
-default_color = Color(1, 0.6224141, 0.4833926, 1)
+default_color = Color(0.69324, 0.78596747, 1, 1)
 
 [node name="Line2DIn" type="Line2D" parent="."]
 unique_name_in_owner = true
 points = PackedVector2Array(640, 0, 0, 0)
-width = 2.5
+width = 3.0
 width_curve = ExtResource("2_q0v3g")
-default_color = Color(0.9999998, 0.8968403, 0.7460156, 1)
+default_color = Color(0.9752602, 0.97169966, 0.98157007, 1)
 
 [node name="RayCast2D" type="RayCast2D" parent="."]
 unique_name_in_owner = true

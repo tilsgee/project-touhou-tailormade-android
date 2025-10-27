@@ -5,6 +5,7 @@ const ONE_CLOTHING_TEX_RECT = preload("uid://bkb23u5dnn365")
 static var instance: GameUI
 
 @onready var _score_label := %Score
+@onready var _coin_label := %Coin
 @onready var _power_stats := %PowerStats
 @onready var _power_label := %PowerLabel
 @onready var _fps := %FPS
@@ -36,6 +37,9 @@ var _max_power: int:
 	set(val): Stats.set_stats(&"power", &"max_value", val)
 	get: return Stats.get_stats(&"power", &"max_value")
 
+var _coin: int:
+	set(val): Stats.set_stats(&"coin", &"value", val)
+	get: return Stats.get_stats(&"coin", &"value")
 
 var _last_health_point: TextureProgressBar:
 	get: return _health_cont.get_children()[-1]
@@ -47,7 +51,9 @@ func _ready() -> void:
 	_connect_signals()
 	_update_fps()
 	_initialize()
-
+	if !App.data.debug_build:
+		_fps.hide()
+		
 func _connect_signals() -> void:
 	Stats.stats_changed.connect(func(which: StringName, what: StringName, value: Variant):
 		match which:
@@ -67,6 +73,10 @@ func _connect_signals() -> void:
 				_update_spell(what, value)
 			&"power":
 				_update_power(what, value)
+			&"coin":
+				const DURATION := 0.33
+				AutoTween.new(_coin_label.get_parent(), &"position:y", 0.0, DURATION).from(-5.0)
+				_coin_label.text = str(_coin)
 	)
 	Player.instance.damaged.connect(func():
 		var new_rect := ColorRect.new()
@@ -85,10 +95,12 @@ func _initialize() -> void:
 	var sp = Stats.get_stats(&"bomb", &"value")
 	var ph_sub = Stats.get_stats(&"player_health", &"sub_value")
 	var powr = Stats.get_stats(&"power", &"value")
+	var coin = Stats.get_stats(&"coin", &"value")
 	Stats.set_stats(&"player_health", &"value", ph)
 	Stats.set_stats(&"player_health", &"sub_value", ph_sub)
 	Stats.set_stats(&"bomb", &"value", sp)
 	Stats.set_stats(&"power", &"value", powr)
+	Stats.set_stats(&"coin", &"value", coin)
 	
 func _update_health(what: StringName, value: int) -> void:
 	var remap_health := func(val):

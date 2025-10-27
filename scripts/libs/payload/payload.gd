@@ -47,7 +47,10 @@ var _max_power: int:
 var _power: int:
 	set(val): Stats.set_stats(&"power", &"value", mini(val, _max_power))
 	get: return Stats.get_stats(&"power", &"value")
-	
+var _coin: int:
+	set(val): Stats.set_stats(&"coin", &"value", val)
+	get: return Stats.get_stats(&"coin", &"value")
+
 var _timer: SceneTreeTimer
 var _init_y: float
 
@@ -56,7 +59,7 @@ static func create(where: Vector2, which := TYPE.AUTO, force_pickup := false, am
 	var actual_type = _determine_type(which)
 	
 	if actual_type != Payload.TYPE.BOMB and actual_type != Payload.TYPE.HEALTH:
-		actual_ammount = randi_range(3, 8)
+		actual_ammount = randi_range(2, 4)
 	if ammount != 0:
 		actual_ammount = abs(ammount)
 		
@@ -108,7 +111,7 @@ func _claim() -> void:
 		match type:
 			TYPE.SMALL_POINT: col = Color.SKY_BLUE
 			TYPE.HEALTH: col = Color.ORANGE_RED
-			TYPE.POINT: col = Color.AQUA
+			TYPE.POINT: col = Color.YELLOW
 			TYPE.POWER: col = Color.RED
 			TYPE.BOMB: col = Color.PURPLE
 		col.a = 0.3 if type == TYPE.SMALL_POINT else 0.7
@@ -158,7 +161,9 @@ func _pick(dist: float, delta: float) -> void:
 			TYPE.BOMB: _bomb += 1
 			TYPE.POWER: _power += 1
 			TYPE.HEALTH: _player_sub_health += 1
-		HitLabel.create(BASE_SCORE * type, Player.instance, Vector2(0.0, -92.0)).scale = Vector2(0.7, 0.7)
+			TYPE.POINT:
+				_coin += 1
+				HitLabel.create(1, Player.instance, Vector2(0.0, -92.0)).scale = Vector2(0.7, 0.7)
 		_deactivate()
 
 func _show_sprite(which: Sprite2D) -> void:

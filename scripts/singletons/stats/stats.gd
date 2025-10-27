@@ -31,6 +31,9 @@ var _stats := {
 		&"value": 0,
 		&"point_item": 0
 	},
+	&"coin": {
+		&"value": 0
+	},
 }
 
 func send_notification(what: StringName, value: Variant = null) -> void:

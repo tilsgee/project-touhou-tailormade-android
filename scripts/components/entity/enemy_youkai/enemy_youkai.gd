@@ -3,6 +3,7 @@ class_name EnemyYoukai extends Entity
 const POWER := 300.0
 
 @onready var _shoot_comp := %ShootComponent
+@onready var _sprite := $Icon
 #@onready var _health_comp: HealthComponent = %HealthComponent
 
 var dir_to_player: float:
@@ -41,7 +42,12 @@ func _physics_process(_delta: float) -> void:
 	if _next_target != null:
 		var _distance_vec = _next_target - self.global_position
 		velocity = _distance_vec.normalized() * _speed
-
+		if _next_target.distance_to(global_position) >= 10.0:
+			if velocity.x > 10.0:
+				_sprite.flip_h = false
+			elif velocity.x < -10.0:
+				_sprite.flip_h = true
+	
 	_shoot_comp.look_at(Player.instance.global_position)
 	move_and_slide()
 

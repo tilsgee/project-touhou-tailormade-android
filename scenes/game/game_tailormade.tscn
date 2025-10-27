@@ -167,6 +167,7 @@ text = "Inventory full!"
 [node name="Cursor" parent="UI" instance=ExtResource("2_g1wqq")]
 
 [node name="Abr" type="ColorRect" parent="UI"]
+visible = false
 material = SubResource("ShaderMaterial_uwmyg")
 anchors_preset = 15
 anchor_right = 1.0

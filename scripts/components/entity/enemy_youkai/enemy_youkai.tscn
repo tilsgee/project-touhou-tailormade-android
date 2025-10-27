@@ -1,15 +1,32 @@
-[gd_scene load_steps=11 format=3 uid="uid://c673lbbcna1t7"]
+[gd_scene load_steps=15 format=3 uid="uid://c673lbbcna1t7"]
 
 [ext_resource type="Script" uid="uid://t8wim5u1mbl" path="res://scripts/components/entity/enemy_youkai/enemy_youkai.gd" id="1_do2ys"]
+[ext_resource type="Texture2D" uid="uid://beqpbimtk66t8" path="res://config/gradients/point_light_grad.tres" id="2_4h3xu"]
 [ext_resource type="PackedScene" uid="uid://cgsn8y8emb4lv" path="res://scripts/components/health/health_component.tscn" id="2_l78q6"]
+[ext_resource type="Script" uid="uid://cosvmkjunjpa4" path="res://scripts/components/entity/player/scripts/shadow.gd" id="3_at1s4"]
 [ext_resource type="PackedScene" uid="uid://64t337w2n4fs" path="res://scripts/components/hitbox/hitbox_component.tscn" id="3_qvf34"]
-[ext_resource type="Texture2D" uid="uid://de60in8oi1p1f" path="res://icon.svg" id="5_s4b51"]
+[ext_resource type="Texture2D" uid="uid://m8mtefmchndg" path="res://resources/images/sprites/youkai_1.png" id="4_do2ys"]
+[ext_resource type="Texture2D" uid="uid://h52jx442y1r2" path="res://resources/images/sprites/youkai_2.png" id="5_tolru"]
 [ext_resource type="PackedScene" uid="uid://dmx4xwtjk3k31" path="res://scripts/components/touch_damage/touch_damage.tscn" id="6_05ep0"]
 [ext_resource type="PackedScene" uid="uid://ctyei6ne0fqea" path="res://scripts/components/shoot/shoot_component.tscn" id="7_7uup3"]
 [ext_resource type="PackedScene" uid="uid://bam3ja14c33gu" path="res://scripts/libs/projectiles/projectile.tscn" id="8_avc73"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_nmp6b"]
 size = Vector2(64, 64)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_4h3xu"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("4_do2ys")
+}, {
+"duration": 1.0,
+"texture": ExtResource("5_tolru")
+}],
+"loop": true,
+"name": &"fly",
+"speed": 2.0
+}]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_0onyc"]
 size = Vector2(48, 48)
@@ -23,6 +40,13 @@ collision_layer = 16
 collision_mask = 0
 script = ExtResource("1_do2ys")
 
+[node name="Shadow" type="Sprite2D" parent="."]
+modulate = Color(0, 0, 0, 0.58431375)
+position = Vector2(0, 22.5)
+scale = Vector2(0.062499996, 0.029296875)
+texture = ExtResource("2_4h3xu")
+script = ExtResource("3_at1s4")
+
 [node name="HealthComponent" parent="." instance=ExtResource("2_l78q6")]
 unique_name_in_owner = true
 visible = false
@@ -35,10 +59,11 @@ collision_layer = 256
 [node name="CollisionShape2D" type="CollisionShape2D" parent="HitboxComponent"]
 shape = SubResource("RectangleShape2D_nmp6b")
 
-[node name="Icon" type="Sprite2D" parent="."]
-y_sort_enabled = true
-scale = Vector2(0.37499997, 0.37499997)
-texture = ExtResource("5_s4b51")
+[node name="Icon" type="AnimatedSprite2D" parent="."]
+scale = Vector2(1.5, 1.5)
+sprite_frames = SubResource("SpriteFrames_4h3xu")
+animation = &"fly"
+autoplay = "fly"
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 visible = false

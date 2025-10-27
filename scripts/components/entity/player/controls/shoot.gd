@@ -26,7 +26,7 @@ func _ready() -> void:
 	for n in _shoot_comps:
 		for m in n:
 			m.bullet_spawned.connect(func():
-				SFX.new(self, SFX.playlist.player.shoot.bullet_small, {&"volume_db": -8.0})
+				SFX.new(self, SFX.playlist.player.shoot.bullet_small, {&"volume_db": -2.0})
 			)
 			m.individual_bullet_spawned.connect(func(where):
 				VFX.Explosion.CircularExplosion.new(where, 15.0, 0.2)

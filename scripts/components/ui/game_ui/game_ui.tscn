@@ -1,9 +1,10 @@
-[gd_scene load_steps=5 format=3 uid="uid://dyrsxd3nm3uyv"]
+[gd_scene load_steps=6 format=3 uid="uid://dyrsxd3nm3uyv"]
 
 [ext_resource type="Theme" uid="uid://cvocwk6x1wj7h" path="res://config/themes/global.tres" id="1_sfx41"]
 [ext_resource type="Script" uid="uid://dh1sfnth40omm" path="res://scripts/components/ui/game_ui/game_ui.gd" id="2_a8s2a"]
 [ext_resource type="Texture2D" uid="uid://bxwvg6kk80vpu" path="res://resources/images/sprites/projectiles/bullets/orb_1.png" id="3_jmta6"]
 [ext_resource type="Texture2D" uid="uid://bts0v5l0n2vvn" path="res://resources/images/sprites/projectiles/bullets/orb_3.png" id="3_wly3i"]
+[ext_resource type="Texture2D" uid="uid://bvbdpm50efifi" path="res://resources/images/sprites/coin_big.png" id="5_wywtt"]
 
 [node name="GameUI" type="MarginContainer"]
 anchors_preset = 15
@@ -78,6 +79,7 @@ fill_mode = 4
 texture_progress = ExtResource("3_jmta6")
 
 [node name="Spell" type="HBoxContainer" parent="HBoxContainer/L"]
+visible = false
 layout_mode = 2
 theme_override_constants/separation = 8
 
@@ -101,6 +103,35 @@ value = 100.0
 fill_mode = 4
 texture_progress = ExtResource("3_wly3i")
 
+[node name="M" type="HBoxContainer" parent="HBoxContainer"]
+layout_mode = 2
+size_flags_vertical = 0
+alignment = 1
+
+[node name="CenterContainer" type="CenterContainer" parent="HBoxContainer/M"]
+layout_mode = 2
+
+[node name="TextureRect" type="TextureRect" parent="HBoxContainer/M/CenterContainer"]
+modulate = Color(0, 0, 0, 0.40392157)
+custom_minimum_size = Vector2(36, 36)
+layout_mode = 2
+texture = ExtResource("5_wywtt")
+expand_mode = 3
+
+[node name="TextureRect2" type="TextureRect" parent="HBoxContainer/M/CenterContainer"]
+custom_minimum_size = Vector2(32, 32)
+layout_mode = 2
+texture = ExtResource("5_wywtt")
+expand_mode = 3
+
+[node name="Coin" type="Label" parent="HBoxContainer/M"]
+unique_name_in_owner = true
+layout_mode = 2
+size_flags_vertical = 8
+text = "12"
+horizontal_alignment = 1
+vertical_alignment = 1
+
 [node name="R" type="VBoxContainer" parent="HBoxContainer"]
 layout_mode = 2
 size_flags_horizontal = 3
@@ -111,12 +142,14 @@ layout_mode = 2
 alignment = 2
 
 [node name="Label" type="Label" parent="HBoxContainer/R/ScoreBox"]
+visible = false
 layout_mode = 2
 text = "SCORE:"
 
 [node name="Score" type="Label" parent="HBoxContainer/R/ScoreBox"]
 unique_name_in_owner = true
 layout_mode = 2
+theme_override_font_sizes/font_size = 18
 text = "0"
 
 [node name="Separator" type="Control" parent="HBoxContainer/R"]

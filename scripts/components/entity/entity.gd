@@ -32,7 +32,7 @@ func damage(args: Dictionary) -> void:
 	#AutoTween.new(self, &"scale", Vector2.ONE, 0.25).from(Vector2(1.05, 1.05))
 	VFX.Explosion.CircularExplosion.new(args.collision_point, 12.0, 0.2)
 	VFX.Particles.BloodSplat.new(args.collision_point)
-	SFX.new(self, SFX.playlist.enemy.hit, {&"volume_db": -4.0})
+	SFX.new(self, SFX.playlist.enemy.hit, {&"volume_db": -12.0})
 
 	_score += abs(args.change_package.amount * 10.0)
 	
@@ -43,7 +43,7 @@ func die() -> void:
 	died.emit()
 	hitbox_component.active = false
 	VFX.Explosion.RegularExplosion.new(global_position)
-	SFX.new(self, SFX.playlist.enemy.dead, {&"volume_db": 4.0})
+	SFX.new(self, SFX.playlist.enemy.dead, {&"volume_db": -12.0})
 	Payload.create(global_position)
 	CameraShaker.new(3.33)
 	
