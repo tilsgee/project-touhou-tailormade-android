@@ -1,6 +1,6 @@
 [gd_scene load_steps=10 format=3 uid="uid://y4om1upelsvr"]
 
-[ext_resource type="Script" uid="uid://b0c2xpk81yby5" path="res://scenes/game/game.gd" id="1_0sr1o"]
+[ext_resource type="Script" uid="uid://bh7lixkee17rq" path="res://scenes/game/scripts/game.gd" id="1_5i0tg"]
 [ext_resource type="PackedScene" uid="uid://ctpnitbyiug4h" path="res://scenes/arena/arena.tscn" id="3_lfrn8"]
 [ext_resource type="Shader" uid="uid://c2uah3fag4ja8" path="res://shaders/chromatic/chromatic_aberration.gdshader" id="4_bdhmt"]
 [ext_resource type="PackedScene" uid="uid://bdm6wlm530nsh" path="res://scripts/components/cursor/cursor.tscn" id="5_5i0tg"]
@@ -22,7 +22,7 @@ shader_parameter/feather = 1.0
 shader_parameter/strength = Vector2(1, 1)
 
 [node name="Game" type="Node"]
-script = ExtResource("1_0sr1o")
+script = ExtResource("1_5i0tg")
 
 [node name="Scripts" type="Node" parent="."]
 

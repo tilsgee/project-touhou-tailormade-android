@@ -13,4 +13,19 @@ static var data := {
 @export var next_scene: PackedScene = load("res://scenes/game/game.tscn")
 
 func _ready() -> void:
-	SceneManager.change_scene.call_deferred(next_scene, true)
+	var platform = OS.get_name()
+	var scene_instance = next_scene.instantiate()
+
+	if platform == "Android":
+		var android_script_path = "res://scenes/game/scripts/game_android.gd"
+		if ResourceLoader.exists(android_script_path):
+			var android_script = load(android_script_path)
+			scene_instance.set_script(android_script)
+			print("✅ Using GameAndroid script")
+		else:
+			print("⚠️ Android script not found, using default script")
+	else:
+		print("🖥️ Desktop mode active")
+
+	# Change scene to the prepared instance
+	SceneManager.change_scene.call_deferred(scene_instance, true)
