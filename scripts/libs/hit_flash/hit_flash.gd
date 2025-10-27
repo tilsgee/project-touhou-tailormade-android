@@ -7,10 +7,9 @@ var _old_mat: Material
 
 func _init(node: Node2D, max_modulation := 1.0, modulation_color := Color.RED, duration := 0.2) -> void:
 	_node = node
-	
-	if _node.material != null and _node.material != _material:
+	if _node.material != null and _node.material.resource_path != _material.resource_path:
 		_old_mat = _node.material
-	_node.material = _material
+	_node.material = _material.duplicate()
 
 	var mat := _node.material as ShaderMaterial
 	
