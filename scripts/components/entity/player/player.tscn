@@ -1,7 +1,8 @@
-[gd_scene load_steps=35 format=3 uid="uid://bnq3t3c1imot1"]
+[gd_scene load_steps=37 format=3 uid="uid://bnq3t3c1imot1"]
 
 [ext_resource type="Script" uid="uid://d1jn4o30sfwvx" path="res://scripts/components/entity/player/player.gd" id="1_8mv8a"]
 [ext_resource type="Script" uid="uid://branfvijgagoc" path="res://scripts/components/entity/player/scripts/behaviour.gd" id="2_xbowy"]
+[ext_resource type="Script" uid="uid://cosvmkjunjpa4" path="res://scripts/components/entity/player/scripts/shadow.gd" id="3_01w36"]
 [ext_resource type="Script" uid="uid://bh2ros8k6g6v5" path="res://scripts/components/entity/player/controls/movement.gd" id="3_f7xu1"]
 [ext_resource type="Script" uid="uid://dtd5yjdni6m7a" path="res://scripts/components/entity/player/scripts/position_ticker.gd" id="3_l8lx2"]
 [ext_resource type="Script" uid="uid://ckc4qx27gw2to" path="res://scripts/components/entity/player/scripts/interact.gd" id="4_xbowy"]
@@ -18,6 +19,7 @@
 [ext_resource type="PackedScene" uid="uid://cgsn8y8emb4lv" path="res://scripts/components/health/health_component.tscn" id="11_jtuxu"]
 [ext_resource type="PackedScene" uid="uid://64t337w2n4fs" path="res://scripts/components/hitbox/hitbox_component.tscn" id="12_4yr2i"]
 [ext_resource type="PackedScene" uid="uid://cn67m3chiffav" path="res://scripts/components/entity/player/ssm/pp_ssm.tscn" id="12_8pf52"]
+[ext_resource type="Texture2D" uid="uid://beqpbimtk66t8" path="res://config/gradients/point_light_grad.tres" id="19_6bhkk"]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_yjq4j"]
 radius = 4.0
@@ -190,6 +192,13 @@ collision_layer = 8
 collision_mask = 3
 floor_constant_speed = true
 script = ExtResource("1_8mv8a")
+
+[node name="Shadow" type="Sprite2D" parent="."]
+modulate = Color(0, 0, 0, 0.58431375)
+position = Vector2(0, 22.5)
+scale = Vector2(0.062499996, 0.029296875)
+texture = ExtResource("19_6bhkk")
+script = ExtResource("3_01w36")
 
 [node name="Scripts" type="Node" parent="."]
 

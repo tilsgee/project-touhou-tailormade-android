@@ -6,7 +6,9 @@ static var pooled_nodes: Node2D:
 	get: return instance.get_node("%PooledNodes")
 static var other_nodes: Node2D:
 	get: return instance.get_node("%OtherNodes")
-
+static var backgrounds: Node2D:
+	get: return instance.get_node("%Backgrounds")
+	
 func _init() -> void:
 	instance = self
 

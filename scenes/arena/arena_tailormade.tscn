@@ -102,7 +102,7 @@ border_width = 7.0
 [node name="Debug" type="Node" parent="Scripts"]
 
 [node name="Backgrounds" type="Node2D" parent="."]
-y_sort_enabled = true
+unique_name_in_owner = true
 position = Vector2(3.0517578e-05, 0)
 scale = Vector2(0.99999994, 0.99999994)
 metadata/_edit_lock_ = true
@@ -274,8 +274,7 @@ limit_right = 960
 limit_bottom = 540
 
 [node name="Player" parent="." instance=ExtResource("4_20rqo")]
-y_sort_enabled = false
-position = Vector2(64, 248)
+position = Vector2(200, 272)
 
 [node name="Walls" type="Node2D" parent="."]
 y_sort_enabled = true
