@@ -5,6 +5,7 @@ enum TYPE {AUTO = 0, SMALL_POINT = 16, POINT = 32, POWER = 64, BOMB = 128, HEALT
 const BASE_SCORE := 4
 const SPEED := 1500.0
 const LIFETIME := 3.0
+const Y_DROP := 16.0
 
 static var _payload_scene: PackedScene = preload("uid://dicasa7xix1bv")
 
@@ -48,6 +49,7 @@ var _power: int:
 	get: return Stats.get_stats(&"power", &"value")
 	
 var _timer: SceneTreeTimer
+var _init_y: float
 
 static func create(where: Vector2, which := TYPE.AUTO, force_pickup := false, ammount := 0) -> void:
 	var actual_ammount: int
@@ -112,6 +114,7 @@ func _claim() -> void:
 		col.a = 0.3 if type == TYPE.SMALL_POINT else 0.7
 		Trail.new(Arena.other_nodes, self, col, 2.0 if type == TYPE.SMALL_POINT else 4.0)
 	get_tree().create_timer(0.33, false).timeout.connect(func(): ready_pick = true)
+	_init_y = global_position.y
 	
 func _physics_process(delta: float) -> void:
 	var dist := global_position.distance_to(Player.instance.global_position)
@@ -119,7 +122,7 @@ func _physics_process(delta: float) -> void:
 		_pick(dist, delta)
 		if _gravity.active:
 			_gravity.toggle(false)
-	elif is_on_floor():
+	elif global_position.y >= _init_y + Y_DROP:
 		velocity = Vector2.ZERO
 	move_and_slide()
 
