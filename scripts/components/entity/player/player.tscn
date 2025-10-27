@@ -1,4 +1,4 @@
-[gd_scene load_steps=33 format=3 uid="uid://bnq3t3c1imot1"]
+[gd_scene load_steps=35 format=3 uid="uid://bnq3t3c1imot1"]
 
 [ext_resource type="Script" uid="uid://d1jn4o30sfwvx" path="res://scripts/components/entity/player/player.gd" id="1_8mv8a"]
 [ext_resource type="Script" uid="uid://branfvijgagoc" path="res://scripts/components/entity/player/scripts/behaviour.gd" id="2_xbowy"]
@@ -152,19 +152,30 @@ animation = &"idle"
 animation = &"run"
 
 [sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_01w36"]
+advance_mode = 2
 
 [sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_ewq10"]
 
 [sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_0dmef"]
 
 [sub_resource type="AnimationNodeStateMachine" id="AnimationNodeStateMachine_silhg"]
-states/End/position = Vector2(696, 92)
-states/Start/position = Vector2(239, 92)
+states/Start/position = Vector2(266, 100)
 states/idle/node = SubResource("AnimationNodeAnimation_8pf52")
-states/idle/position = Vector2(369, 92)
+states/idle/position = Vector2(405, 100)
 states/run/node = SubResource("AnimationNodeAnimation_6bhkk")
-states/run/position = Vector2(559, 92)
+states/run/position = Vector2(593, 106)
 transitions = ["Start", "idle", SubResource("AnimationNodeStateMachineTransition_01w36"), "idle", "run", SubResource("AnimationNodeStateMachineTransition_ewq10"), "run", "idle", SubResource("AnimationNodeStateMachineTransition_0dmef")]
+
+[sub_resource type="AnimationNodeTimeScale" id="AnimationNodeTimeScale_hblr5"]
+
+[sub_resource type="AnimationNodeBlendTree" id="AnimationNodeBlendTree_oqk8b"]
+graph_offset = Vector2(-427.55774, 11.294891)
+nodes/output/position = Vector2(360, 120)
+nodes/TimeScale/node = SubResource("AnimationNodeTimeScale_hblr5")
+nodes/TimeScale/position = Vector2(200, 100)
+nodes/StateMachine/node = SubResource("AnimationNodeStateMachine_silhg")
+nodes/StateMachine/position = Vector2(-40, 100)
+node_connections = [&"output", 0, &"TimeScale", &"TimeScale", 0, &"StateMachine"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_4yr2i"]
 size = Vector2(48, 64)
@@ -210,8 +221,9 @@ libraries = {
 }
 
 [node name="AnimationTree" type="AnimationTree" parent="Animation"]
-tree_root = SubResource("AnimationNodeStateMachine_silhg")
+tree_root = SubResource("AnimationNodeBlendTree_oqk8b")
 anim_player = NodePath("../AnimationPlayer")
+parameters/TimeScale/scale = 1.0
 
 [node name="Controls" type="Node2D" parent="."]
 

@@ -1,0 +1,22 @@
+[gd_resource type="AnimationNodeStateMachine" load_steps=6 format=3 uid="uid://cf52q4awyj5q8"]
+
+[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_8pf52"]
+animation = &"idle"
+
+[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_6bhkk"]
+animation = &"run"
+
+[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_01w36"]
+
+[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_ewq10"]
+
+[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_0dmef"]
+
+[resource]
+states/End/position = Vector2(696, 92)
+states/Start/position = Vector2(239, 92)
+states/idle/node = SubResource("AnimationNodeAnimation_8pf52")
+states/idle/position = Vector2(369, 92)
+states/run/node = SubResource("AnimationNodeAnimation_6bhkk")
+states/run/position = Vector2(559, 92)
+transitions = ["Start", "idle", SubResource("AnimationNodeStateMachineTransition_01w36"), "idle", "run", SubResource("AnimationNodeStateMachineTransition_ewq10"), "run", "idle", SubResource("AnimationNodeStateMachineTransition_0dmef")]
