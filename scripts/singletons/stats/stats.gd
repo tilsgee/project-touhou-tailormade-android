@@ -16,7 +16,7 @@ var _stats := {
 		&"max_value": 100.0
 	},
 	&"power": {
-		&"value": 30,
+		&"value": 1,
 		&"max_value": 60
 	},
 	&"bomb": {

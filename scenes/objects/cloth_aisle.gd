@@ -2,6 +2,7 @@ class_name ClothAisle extends Node2D
 
 signal open_cloth_aisle(list : Array[ClothingData])
 
+@export var aisle_name : String = "Clothing Aisle #0"
 @export var clothing_list : Array[ClothingData]
 @export var _sprite_node : Sprite2D
 
@@ -12,5 +13,9 @@ var middle_pos : Vector2:
 		else:
 			return self.global_position
 
+
 func _on_interactable_solid_player_interacted() -> void:
-	open_cloth_aisle.emit(clothing_list)
+	var _aisle_data := {
+		"name" = aisle_name
+	}
+	open_cloth_aisle.emit(_aisle_data, clothing_list)

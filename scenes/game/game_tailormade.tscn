@@ -68,6 +68,7 @@ size = Vector2i(648, 368)
 render_target_update_mode = 4
 
 [node name="ArenaTailormade2" parent="Viewport" instance=ExtResource("2_fmcej")]
+y_sort_enabled = false
 
 [node name="GameView" type="Sprite2D" parent="."]
 unique_name_in_owner = true
@@ -134,7 +135,8 @@ grow_vertical = 2
 custom_minimum_size = Vector2(0, 30)
 layout_mode = 2
 
-[node name="Label" type="Label" parent="UI/ClothAisleUi/VBoxContainer"]
+[node name="AisleNameLabel" type="Label" parent="UI/ClothAisleUi/VBoxContainer"]
+unique_name_in_owner = true
 layout_mode = 2
 text = "Cloth Aisle #1"
 label_settings = SubResource("LabelSettings_u3fuu")

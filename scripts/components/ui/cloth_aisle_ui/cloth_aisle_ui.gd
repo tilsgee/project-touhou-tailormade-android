@@ -5,10 +5,13 @@ const CLOTHING_ON_DISPLAY := preload("uid://cjk1v0j44yjpo")
 static var _clothes_hbox: HBoxContainer:
 	get: return instance.get_node("%ClothesHbox")
 
+static var _aisle_name_label: Label:
+	get: return instance.get_node("%AisleNameLabel")
+
 static var instance: ClothAisleUI
 
 
-static func show_ui(_clothing_list : Array[ClothingData]):
+static func show_ui(_aisle_data : Dictionary, _clothing_list : Array[ClothingData]):
 	if instance.visible:
 		return
 	
@@ -23,7 +26,8 @@ static func show_ui(_clothing_list : Array[ClothingData]):
 		if new_display.clothing_data.is_picked_by_player:
 			new_display.dim_this_display()
 		new_display.selected_clothing.connect(selected_clothing_and_close_ui)
-		
+	
+	_aisle_name_label.text = _aisle_data.name
 	instance.show()
 	Player.enable_input = false
 	Camera.set_mode(Camera.MODE.STATIC)

@@ -190,37 +190,48 @@ y_sort_enabled = true
 
 [node name="ClothAisle" parent="Interactables/Clothes" instance=ExtResource("3_qldv2")]
 position = Vector2(157, 287)
+aisle_name = "Clothing Aisle #1"
 clothing_list = Array[ExtResource("4_24iwg")]([ExtResource("5_ksjjh"), ExtResource("6_isuqa")])
 
 [node name="ClothAisle2" parent="Interactables/Clothes" instance=ExtResource("3_qldv2")]
 position = Vector2(360, 208)
+aisle_name = "Clothing Aisle #2"
 
 [node name="ClothAisle3" parent="Interactables/Clothes" instance=ExtResource("3_qldv2")]
 position = Vector2(448, 208)
+aisle_name = "Clothing Aisle #3"
 
 [node name="ClothAisle4" parent="Interactables/Clothes" instance=ExtResource("3_qldv2")]
 position = Vector2(616, 304)
+aisle_name = "Clothing Aisle #4"
 
 [node name="ClothAisle5" parent="Interactables/Clothes" instance=ExtResource("3_qldv2")]
 position = Vector2(256, 416)
+aisle_name = "Clothing Aisle #5"
 
 [node name="ClothAisle6" parent="Interactables/Clothes" instance=ExtResource("3_qldv2")]
 position = Vector2(344, 416)
+aisle_name = "Clothing Aisle #6"
 
 [node name="ClothAisle7" parent="Interactables/Clothes" instance=ExtResource("3_qldv2")]
 position = Vector2(600, 432)
+aisle_name = "Clothing Aisle #7"
 
 [node name="ClothAisle8" parent="Interactables/Clothes" instance=ExtResource("3_qldv2")]
 position = Vector2(688, 432)
+aisle_name = "Clothing Aisle #8"
 
 [node name="ClothAisle9" parent="Interactables/Clothes" instance=ExtResource("3_qldv2")]
 position = Vector2(832, 432)
+aisle_name = "Clothing Aisle #9"
 
 [node name="ClothAisle10" parent="Interactables/Clothes" instance=ExtResource("3_qldv2")]
 position = Vector2(776, 32)
+aisle_name = "Clothing Aisle #10"
 
 [node name="ClothAisle11" parent="Interactables/Clothes" instance=ExtResource("3_qldv2")]
 position = Vector2(464, 32)
+aisle_name = "Clothing Aisle #11"
 
 [node name="ClothAisle12" parent="Interactables/Clothes" instance=ExtResource("3_qldv2")]
 position = Vector2(304, 16)
@@ -263,6 +274,7 @@ limit_right = 960
 limit_bottom = 540
 
 [node name="Player" parent="." instance=ExtResource("4_20rqo")]
+y_sort_enabled = false
 position = Vector2(64, 248)
 
 [node name="Walls" type="Node2D" parent="."]
