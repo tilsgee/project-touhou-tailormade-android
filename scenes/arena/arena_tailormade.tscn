@@ -14,7 +14,7 @@
 [ext_resource type="Texture2D" uid="uid://cyggcllqjswvw" path="res://resources/images/sprites/tilesetformattedupdate1.png" id="9_ksjjh"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_sfppn"]
-size = Vector2(64, 192)
+size = Vector2(64, 152)
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_ksjjh"]
 texture = ExtResource("9_ksjjh")
@@ -36,6 +36,7 @@ texture_region_size = Vector2i(32, 32)
 1:2/0 = 0
 2:2/0 = 0
 3:2/0 = 0
+3:2/0/y_sort_origin = 23
 4:2/0 = 0
 5:2/0 = 0
 6:2/0 = 0
@@ -43,6 +44,7 @@ texture_region_size = Vector2i(32, 32)
 1:3/0 = 0
 2:3/0 = 0
 3:3/0 = 0
+3:3/0/y_sort_origin = -9
 4:3/0 = 0
 5:3/0 = 0
 6:3/0 = 0
@@ -76,6 +78,7 @@ size = Vector2(1089, 64)
 size = Vector2(64, 682.00024)
 
 [node name="ArenaTailormade" type="Node2D"]
+y_sort_enabled = true
 script = ExtResource("1_24iwg")
 
 [node name="CanvasLayer" type="CanvasLayer" parent="."]
@@ -99,6 +102,7 @@ border_width = 7.0
 [node name="Debug" type="Node" parent="Scripts"]
 
 [node name="Backgrounds" type="Node2D" parent="."]
+y_sort_enabled = true
 position = Vector2(3.0517578e-05, 0)
 scale = Vector2(0.99999994, 0.99999994)
 metadata/_edit_lock_ = true
@@ -178,9 +182,11 @@ tile_set = ExtResource("3_ksjjh")
 metadata/_edit_lock_ = true
 
 [node name="Interactables" type="Node2D" parent="."]
+y_sort_enabled = true
 
 [node name="Clothes" type="Node2D" parent="Interactables"]
 unique_name_in_owner = true
+y_sort_enabled = true
 
 [node name="ClothAisle" parent="Interactables/Clothes" instance=ExtResource("3_qldv2")]
 position = Vector2(157, 287)
@@ -223,36 +229,44 @@ position = Vector2(304, 16)
 position = Vector2(216, 16)
 
 [node name="Cashier" type="Node2D" parent="Interactables"]
+y_sort_enabled = true
 position = Vector2(64, 152)
 
 [node name="Sprite2D" type="Sprite2D" parent="Interactables/Cashier"]
+y_sort_enabled = true
 position = Vector2(24, 112)
 texture = ExtResource("8_ksjjh")
 
 [node name="InteractableSolid" type="StaticBody2D" parent="Interactables/Cashier" node_paths=PackedStringArray("_interactable_sprite")]
+z_index = 33
+z_as_relative = false
+y_sort_enabled = true
 collision_layer = 2049
 script = ExtResource("5_sera6")
 _interactable_sprite = NodePath("../Sprite2D")
 
 [node name="SolidCollision" type="CollisionShape2D" parent="Interactables/Cashier/InteractableSolid"]
-position = Vector2(16, 112)
+position = Vector2(24, 108)
 shape = SubResource("RectangleShape2D_sfppn")
 metadata/_edit_lock_ = true
 
 [node name="TileMapLayer" type="TileMapLayer" parent="Interactables"]
+y_sort_enabled = true
 tile_map_data = PackedByteArray("AAADAA4AAAADAAIAAAADAA8AAAADAAMAAAAAAA4AAAAGAAQAAAAAAAIAAAAGAAQAAAAAAB4AAAAGAAQAAAA7AB0AAAAGAAEAAAA7ABQAAAAGAAEAAAA7AA0AAAAGAAEAAAA7AAEAAAAGAAEAAAAEAP7/AAAGAAIAAAAbAP7/AAAGAAIAAAAOAP7/AAAGAAIAAAAoAP7/AAAGAAIAAAA2AP7/AAAGAAIAAAABAAcAAAADAAIAAAABAAgAAAADAAMAAAA=")
 tile_set = SubResource("TileSet_isuqa")
 
 [node name="Camera" parent="." instance=ExtResource("3_sfppn")]
+y_sort_enabled = true
 limit_left = 0
 limit_top = 0
 limit_right = 960
 limit_bottom = 540
 
 [node name="Player" parent="." instance=ExtResource("4_20rqo")]
-position = Vector2(511, 331)
+position = Vector2(64, 248)
 
 [node name="Walls" type="Node2D" parent="."]
+y_sort_enabled = true
 position = Vector2(3.0517578e-05, 0)
 scale = Vector2(0.99999994, 0.99999994)
 
@@ -281,13 +295,17 @@ shape = SubResource("RectangleShape2D_5d4jp")
 
 [node name="Enemies" type="Node2D" parent="."]
 unique_name_in_owner = true
+y_sort_enabled = true
 
 [node name="PooledNodes" type="Node2D" parent="."]
 unique_name_in_owner = true
+y_sort_enabled = true
 
 [node name="OtherNodes" type="Node2D" parent="."]
 unique_name_in_owner = true
+y_sort_enabled = true
 
 [node name="YoukaiSpawnPos" type="Marker2D" parent="."]
 unique_name_in_owner = true
+y_sort_enabled = true
 position = Vector2(992, 272)
