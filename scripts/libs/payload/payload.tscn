@@ -41,6 +41,7 @@ script = ExtResource("1_cdxh7")
 
 [node name="Health" type="Sprite2D" parent="."]
 unique_name_in_owner = true
+visible = false
 scale = Vector2(1.5, 1.5)
 texture = ExtResource("2_22vua")
 
@@ -50,7 +51,6 @@ texture = SubResource("GradientTexture2D_lqwu0")
 
 [node name="Point" type="Sprite2D" parent="."]
 unique_name_in_owner = true
-visible = false
 texture = ExtResource("3_3ul05")
 
 [node name="SmallPoint" type="Sprite2D" parent="."]

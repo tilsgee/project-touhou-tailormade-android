@@ -43,7 +43,7 @@ func die() -> void:
 	died.emit()
 	hitbox_component.active = false
 	VFX.Explosion.RegularExplosion.new(global_position)
-	SFX.new(self, SFX.playlist.objects.explode, {&"volume_db": 4.0})
+	SFX.new(self, SFX.playlist.enemy.dead, {&"volume_db": 4.0})
 	Payload.create(global_position)
 	CameraShaker.new(3.33)
 	

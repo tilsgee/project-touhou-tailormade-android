@@ -1,8 +1,9 @@
-[gd_scene load_steps=15 format=3 uid="uid://dr3m4h6chre4f"]
+[gd_scene load_steps=16 format=3 uid="uid://dr3m4h6chre4f"]
 
 [ext_resource type="Script" uid="uid://cx62cx5dpw3fm" path="res://scenes/game/game_tailormade.gd" id="1_g1wqq"]
 [ext_resource type="PackedScene" uid="uid://cgfbvb4uighod" path="res://scenes/arena/arena_tailormade.tscn" id="2_fmcej"]
 [ext_resource type="PackedScene" uid="uid://bdm6wlm530nsh" path="res://scripts/components/cursor/cursor.tscn" id="2_g1wqq"]
+[ext_resource type="Script" uid="uid://ch0jsd4vbg4dg" path="res://scenes/game/scripts/fade_in.gd" id="2_wuhna"]
 [ext_resource type="PackedScene" uid="uid://dyrsxd3nm3uyv" path="res://scripts/components/ui/game_ui/game_ui.tscn" id="3_fmcej"]
 [ext_resource type="Shader" uid="uid://dsy15rglggpa0" path="res://shaders/vignette/vignette.gdshader" id="3_u3fuu"]
 [ext_resource type="Shader" uid="uid://c2uah3fag4ja8" path="res://shaders/chromatic/chromatic_aberration.gdshader" id="5_wuhna"]
@@ -55,6 +56,9 @@ offset_bottom = 489.0
 text = "ghfjghglgl"
 
 [node name="Scripts" type="Node" parent="."]
+
+[node name="FadeIn" type="Node" parent="Scripts"]
+script = ExtResource("2_wuhna")
 
 [node name="Viewport" type="SubViewport" parent="."]
 unique_name_in_owner = true

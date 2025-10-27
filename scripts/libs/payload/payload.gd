@@ -71,8 +71,8 @@ static func create(where: Vector2, which := TYPE.AUTO, force_pickup := false, am
 static func _determine_type(which: TYPE) -> TYPE:
 	if which == Payload.TYPE.AUTO:
 		var rng := randi_range(0, 50)
-		if rng >= 45: return Payload.TYPE.BOMB
-		elif rng >= 30: return Payload.TYPE.POWER
+		#if rng >= 45: return Payload.TYPE.BOMB
+		if rng >= 30: return Payload.TYPE.POWER
 		elif rng == 1: return Payload.TYPE.HEALTH
 		else: return Payload.TYPE.POINT
 	return which
